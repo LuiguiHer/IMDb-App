@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_imdblogo.xml" value="0.167" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/splash_background.xml" value="0.167" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/splash_logo.xml" value="0.1495" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
   </component>
