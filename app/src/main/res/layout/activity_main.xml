@@ -41,6 +41,10 @@
         android:autofillHints="name"
         android:background="@drawable/inputs_login"
         android:inputType="text"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_light_italic"
+        android:textColor="@color/tertiary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_user"
@@ -52,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@id/input_user"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintHorizontal_bias="0"
         android:text="@string/password"
         android:textSize="16sp"
@@ -65,11 +69,15 @@
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:background="@drawable/inputs_login"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_light_italic"
+        android:textColor="@color/tertiary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_pass"
         tools:ignore="SpeakableTextPresentCheck"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:autofillHints="password"/>
 
     <TextView
@@ -106,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="42dp"
         android:text="@string/option_login"
         android:fontFamily="@font/roboto_light_italic"
         android:textColor="@color/tertiary"
@@ -135,19 +143,19 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="15dp"
-            android:background="@drawable/button__icon_apps"/>
+            android:background="@drawable/btn_icon_ios"/>
         <Button
             android:id="@+id/btn_facebook"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="8dp"
-            android:background="@drawable/button__icon_apps"/>
+            android:background="@drawable/btn_icon_fb"/>
         <Button
             android:id="@+id/btn_google"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="15dp"
-            android:background="@drawable/button__icon_apps"/>
+            android:background="@drawable/btn_icon_google"/>
     </LinearLayout>
 
     <TextView
@@ -185,7 +193,7 @@
         />
     <TextView
         android:id="@+id/txt_guest"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +204,6 @@
         android:fontFamily="@font/roboto_bold"
         android:layout_marginTop="10dp"
         android:textColor="@color/secondary"/>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

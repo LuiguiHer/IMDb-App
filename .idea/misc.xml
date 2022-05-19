@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/btn_icon_fb.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/btn_icon_google.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button__icon_apps.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button__icon_fb.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button_principal.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button_secondary.xml" value="0.147" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_fb.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_google.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_ios.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_imdblogo.xml" value="0.167" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/inputs_login.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/pppp.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/splash_background.xml" value="0.167" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/splash_logo.xml" value="0.1495" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/activity_main.xml" value="0.264" />
