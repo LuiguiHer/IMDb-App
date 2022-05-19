@@ -8,4 +8,10 @@
     <string name="no_account">¿No tenes cuenta?</string>
     <string name="signUp">Registrate</string>
     <string name="guest">Continuar como invitado</string>
+    <string name="create">Crear una cuenta</string>
+    <string name="name">Nombre</string>
+    <string name="accept">Aceptar</string>
+    <string name="email">Correo Electronico</string>
+    <string name="caracters">La contraseña debe contener 8 caracteres</string>
+
 </resources>

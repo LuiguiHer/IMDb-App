@@ -3,8 +3,6 @@ package com.example.imdb
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import com.example.imdb.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,13 +12,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.inputPass.setOnFocusChangeListener { v, hasFocus ->
+        binding.txtSignUp.setOnClickListener {
+            val start = Intent(this, SignUpActivity::class.java)
+            startActivity(start)
+        }
+
+        binding.inputPass.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
                 changeBtn()
             }
         }
 
-        binding.inputUser.setOnFocusChangeListener { v, hasFocus ->
+        binding.inputUser.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus ){
                 changeBtn()
             }

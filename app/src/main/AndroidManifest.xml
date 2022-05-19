@@ -11,11 +11,16 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/imdb_icon"
         android:supportsRtl="true"
-        android:theme="@style/SignUp_Theme"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:theme="@style/Theme.IMDb"
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true" android:theme="@style/SplashTheme">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
