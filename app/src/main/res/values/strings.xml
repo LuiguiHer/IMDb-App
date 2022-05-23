@@ -12,6 +12,7 @@
     <string name="name">Nombre</string>
     <string name="accept">Aceptar</string>
     <string name="email">Correo Electronico</string>
+    <string name="email_duplicate">El correo ya existe</string>
     <string name="caracters">La contraseña debe contener 8 caracteres</string>
 
 </resources>

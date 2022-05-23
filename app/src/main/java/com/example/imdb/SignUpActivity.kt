@@ -1,9 +1,18 @@
 package com.example.imdb
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
+import com.example.imdb.database.User
+import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivitySignUpBinding
+import kotlinx.coroutines.launch
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
@@ -12,8 +21,24 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.Layout.setOnClickListener{
+            val view = this.currentFocus
+            if (view !=null){
+                val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(view.windowToken,0)
+            }
+        }
 
 
+
+        //Send data to db
+        binding.btnAccept.setOnClickListener {
+            addUserToDatabase()
+            clearInputs()
+
+        }
+
+        //validate inputs
         binding.inputName.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){name()}
         }
@@ -21,14 +46,66 @@ class SignUpActivity : AppCompatActivity() {
             if (hasFocus){email()}
         }
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus){password()}
+            if (hasFocus){
+                password()
+                valideEmail()
+            }
         }
 
-
+        //btn back
         binding.btnBack.setOnClickListener {
             val start = Intent(this, MainActivity::class.java)
             startActivity(start)
             finish()
+        }
+    }
+
+    fun valideEmail(){
+        val db = Room.databaseBuilder(
+            applicationContext,
+            UserDatabase::class.java,
+            "data_uses"
+        ).allowMainThreadQueries().build()
+        val userDao = db.userDao()
+        val email = binding.inputEmail.text.toString()
+        val users = userDao.readAllData()
+        for (i in users){
+            if (i.email == email){
+                binding
+                    .tilEmail.error = getString(R.string.email_duplicate)
+            }else{
+                binding
+                    .tilEmail.error = null
+            }
+        }
+    }
+    fun clearInputs(){
+        binding.inputName.setText("")
+        binding.inputEmail.setText("")
+        binding.inputPassword.setText("")
+    }
+
+    fun addUserToDatabase(){
+        val db = Room.databaseBuilder(
+            applicationContext,
+            UserDatabase::class.java,
+            "data_uses"
+        ).allowMainThreadQueries().build()
+        val userDao = db.userDao()
+
+        val name = binding.inputName.text.toString()
+        val email= binding.inputEmail.text.toString()
+        val password= binding.inputPassword.text.toString()
+
+        lifecycleScope.launch {
+            val user = User(0,name,email,password)
+            userDao.addUser(user)
+            Toast.makeText(applicationContext,"registered", Toast.LENGTH_SHORT).show()
+
+            val users = userDao.readAllData()
+            for (i in users){
+                println("${i.id} - ${i.name} - ${i.email} - ${i.password}")
+            }
         }
     }
 
