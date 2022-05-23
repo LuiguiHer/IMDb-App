@@ -16,19 +16,19 @@ import kotlinx.coroutines.launch
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.Layout.setOnClickListener{
+        binding.Layout.setOnClickListener {
             val view = this.currentFocus
-            if (view !=null){
+            if (view != null) {
                 val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(view.windowToken,0)
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
             }
         }
-
 
 
         //Send data to db
@@ -40,13 +40,17 @@ class SignUpActivity : AppCompatActivity() {
 
         //validate inputs
         binding.inputName.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus){name()}
+            if (hasFocus) {
+                name()
+            }
         }
         binding.inputEmail.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus){email()}
+            if (hasFocus) {
+                email()
+            }
         }
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus){
+            if (hasFocus) {
                 password()
                 valideEmail()
             }
@@ -60,73 +64,71 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun valideEmail(){
-        val db = Room.databaseBuilder(
-            applicationContext,
-            UserDatabase::class.java,
+    fun valideEmail() {
+        val db = Room.databaseBuilder(applicationContext,UserDatabase::class.java,
             "data_uses"
         ).allowMainThreadQueries().build()
         val userDao = db.userDao()
         val email = binding.inputEmail.text.toString()
         val users = userDao.readAllData()
-        for (i in users){
-            if (i.email == email){
+        for (i in users) {
+            if (i.email == email) {
                 binding
                     .tilEmail.error = getString(R.string.email_duplicate)
-            }else{
+            } else {
                 binding
                     .tilEmail.error = null
             }
         }
     }
-    fun clearInputs(){
+
+    fun clearInputs() {
         binding.inputName.setText("")
         binding.inputEmail.setText("")
         binding.inputPassword.setText("")
     }
 
-    fun addUserToDatabase(){
-        val db = Room.databaseBuilder(
-            applicationContext,
-            UserDatabase::class.java,
+    fun addUserToDatabase() {
+        val db = Room.databaseBuilder(applicationContext,UserDatabase::class.java,
             "data_uses"
         ).allowMainThreadQueries().build()
         val userDao = db.userDao()
-
         val name = binding.inputName.text.toString()
-        val email= binding.inputEmail.text.toString()
-        val password= binding.inputPassword.text.toString()
+        val email = binding.inputEmail.text.toString()
+        val password = binding.inputPassword.text.toString()
 
         lifecycleScope.launch {
-            val user = User(0,name,email,password)
+            val user = User(0, name, email, password)
             userDao.addUser(user)
-            Toast.makeText(applicationContext,"registered", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "registered", Toast.LENGTH_SHORT).show()
 
             val users = userDao.readAllData()
-            for (i in users){
+            for (i in users) {
                 println("${i.id} - ${i.name} - ${i.email} - ${i.password}")
             }
         }
     }
 
-    fun name(){
-        if(
+    fun name() {
+        if (
             binding.inputPassword.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()
-        ){
-            binding.btnAccept.setBackgroundResource(R.drawable.button_secondary)}
-        else
+        ) {
+            binding.btnAccept.setBackgroundResource(R.drawable.button_secondary)
+        } else
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
-    fun email(){
-        if(
+
+    fun email() {
+        if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputPassword.text.toString().isNotEmpty()
-        ){
-            binding.btnAccept.setBackgroundResource(R.drawable.button_secondary)}
-        else
+        ) {
+            binding.btnAccept.setBackgroundResource(R.drawable.button_secondary)
+        } else
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
+
     fun password() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
@@ -136,7 +138,6 @@ class SignUpActivity : AppCompatActivity() {
         } else
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
-
 
 
 }
