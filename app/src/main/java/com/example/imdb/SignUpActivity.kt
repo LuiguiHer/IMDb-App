@@ -25,31 +25,57 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.Layout.setOnClickListener { clearKeyboard() }
 
+
+
         //Send data to db
         binding.btnAccept.setOnClickListener {
-            if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
-                    binding.inputPassword.text!!.isNotEmpty()){
-                addUserToDatabase()
-                clearInputs()
-            }else
-                Toast.makeText(applicationContext,"Todos los campos son requeridos", Toast.LENGTH_SHORT).show()
+            if (binding.inputPassword.text.toString().length < 8){
+                binding.tilPassword.error = "error password"
+            }else{
+                if (existEmail() == 0){
+                    binding.tilPassword.error = null
+                    if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
+                        binding.inputPassword.text!!.isNotEmpty()){
+                        addUserToDatabase()
+                        clearInputs()
+                    }else {
+                        Toast.makeText(
+                            applicationContext,
+                            "Todos los campos son requeridos",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }else{
+                    Toast.makeText(applicationContext, "Correo en Uso", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+
+
         }
 
         //validate inputs
         binding.inputName.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
+                valideEmail()
+                binding.tilEmail.error = null
                 name()
             }
         }
         binding.inputEmail.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
+                valideEmail()
+                binding.tilEmail.error = null
                 email()
             }
         }
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                password()
+                binding.tilEmail.error =null
                 valideEmail()
+                password()
+
             }
         }
 
@@ -61,12 +87,30 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+
     private fun clearKeyboard() {
         val view = this.currentFocus
         if (view != null) {
             val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    fun existEmail():Int{
+        val db = Room.databaseBuilder(
+            applicationContext, UserDatabase::class.java,
+            "data_uses"
+        ).allowMainThreadQueries().build()
+        val userDao = db.userDao()
+        val email = binding.inputEmail.text.toString()
+        val users = userDao.readAllData()
+        var res = 0
+        for (i in users) res = if (i.email == email){
+            1
+        }else{
+            0
+        }
+        return res
     }
 
     fun valideEmail() {
@@ -77,13 +121,10 @@ class SignUpActivity : AppCompatActivity() {
         val userDao = db.userDao()
         val email = binding.inputEmail.text.toString()
         val users = userDao.readAllData()
-        for (i in users) {
-            if (i.email == email) {
-                binding
-                    .tilEmail.error = getString(R.string.email_duplicate)
-            } else {
-                binding
-                    .tilEmail.error = null
+        var res = 0
+        for (i in users){
+            if (i.email == email){
+                binding.tilEmail.error = "correo en uso"
             }
         }
     }
