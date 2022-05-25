@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.room.Room
+import com.example.imdb.database.User
 import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivityMainBinding
 
@@ -44,15 +45,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val key = exitUserPass()
             binding.textErrorp.text = null
             if (binding.inputUser.text.isEmpty()) {
                 binding.txtError.text = "Usuario requerido"
             } else if (binding.inputPass.text.isEmpty()) {
                 binding.textErrorp.text = "Contraseña requerida"
             } else
-                access(key)
-
+                access(existUser())
         }
 
 
@@ -71,21 +70,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun access(valid: Int) {
-        if (valid == 1) {
+    private fun access(user: User?){
+        if (user != null){
+            Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
             val start = Intent(this, AfterLogin::class.java)
             startActivity(start)
-            Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
             clearInputs()
-        } else{
+        }else{
             clearInputs()
             clearKeyboard()
             binding.Layout.clearFocus()
-            "Usuario o Contraseña invalido".also { binding.txtError.text = it }
-        }
+            "Usuario o Contraseña invalido".also { binding.txtError.text = it}
+            }
     }
 
-    private fun exitUserPass(): Int {
+    private fun existUser(): User{
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
             "data_uses"
@@ -93,15 +92,9 @@ class MainActivity : AppCompatActivity() {
         val userDao = db.userDao()
         val user = binding.inputUser.text.toString()
         val pass = binding.inputPass.text.toString()
-        var key = 0
-        val users = userDao.readAllData()
-        for (item in users) key = if (item.email != user || item.password != pass) {
-            0
-        } else
-            1
-        return key
+        return userDao.getUserByEmailPass(user,pass)
     }
-
+    
     private fun changeBtn() {
         if (binding.inputUser.text.toString().isNotEmpty() || binding.inputPass.text.toString()
                 .isNotEmpty()
