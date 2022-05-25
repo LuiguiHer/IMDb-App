@@ -4,10 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.graphics.toColor
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.imdb.database.User
@@ -25,14 +23,12 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.Layout.setOnClickListener { clearKeyboard() }
 
-
-
         //Send data to db
         binding.btnAccept.setOnClickListener {
             if (binding.inputPassword.text.toString().length < 8){
                 binding.tilPassword.error = "error password"
             }else{
-                if (existEmail() == 0){
+                if (emailFound() == null){
                     binding.tilPassword.error = null
                     if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
                         binding.inputPassword.text!!.isNotEmpty()){
@@ -51,21 +47,19 @@ class SignUpActivity : AppCompatActivity() {
 
             }
 
-
-
         }
 
         //validate inputs
         binding.inputName.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                valideEmail()
                 binding.tilEmail.error = null
+                existUser(emailFound())
                 name()
             }
         }
         binding.inputEmail.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                valideEmail()
+                existUser(emailFound())
                 binding.tilEmail.error = null
                 email()
             }
@@ -73,7 +67,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.tilEmail.error =null
-                valideEmail()
+                existUser(emailFound())
                 password()
 
             }
@@ -88,44 +82,27 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
+
+
+    fun existUser(user:User?){
+        if (user != null){
+            binding.tilEmail.error = "correo en uso"
+        }
+    }
+    fun emailFound(): User {
+        val db = Room.databaseBuilder(
+            applicationContext, UserDatabase::class.java,
+            "data_uses"
+        ).allowMainThreadQueries().build()
+        val userDao = db.userDao()
+        return userDao.getUserByEmail(binding.inputEmail.text.toString())
+    }
+
     private fun clearKeyboard() {
         val view = this.currentFocus
         if (view != null) {
             val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
-
-    fun existEmail():Int{
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_uses"
-        ).allowMainThreadQueries().build()
-        val userDao = db.userDao()
-        val email = binding.inputEmail.text.toString()
-        val users = userDao.readAllData()
-        var res = 0
-        for (i in users) res = if (i.email == email){
-            1
-        }else{
-            0
-        }
-        return res
-    }
-
-    fun valideEmail() {
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_uses"
-        ).allowMainThreadQueries().build()
-        val userDao = db.userDao()
-        val email = binding.inputEmail.text.toString()
-        val users = userDao.readAllData()
-        var res = 0
-        for (i in users){
-            if (i.email == email){
-                binding.tilEmail.error = "correo en uso"
-            }
         }
     }
 
@@ -146,13 +123,13 @@ class SignUpActivity : AppCompatActivity() {
         val password = binding.inputPassword.text.toString()
 
         lifecycleScope.launch {
-            val user = User(0, name, email, password)
+            val user = User(name, email, password)
             userDao.addUser(user)
             Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
 
             val users = userDao.readAllData()
             for (i in users) {
-                println("${i.id} - ${i.name} - ${i.email} - ${i.password}")
+                println("${i.name} - ${i.email} - ${i.password}")
             }
         }
     }

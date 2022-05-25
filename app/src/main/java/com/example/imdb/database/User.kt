@@ -5,14 +5,12 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "user_tab",
-    indices = [Index(value=["email"], unique = true)]
+    tableName = "user_tab"
 )
 data class User(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val name: String,
+    @PrimaryKey()
     val email: String,
+    val name: String,
     val password: String
 ) {
 }
