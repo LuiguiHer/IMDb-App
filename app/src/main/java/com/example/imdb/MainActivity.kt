@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         val pass = binding.inputPass.text.toString()
         return userDao.getUserByEmailPass(user,pass)
     }
-    
+
     private fun changeBtn() {
         if (binding.inputUser.text.toString().isNotEmpty() || binding.inputPass.text.toString()
                 .isNotEmpty()

@@ -12,6 +12,7 @@
     <color name="primary">#F6C700</color>
     <color name="secondary">#000000</color>
     <color name="tertiary">#9D9C9C</color>
+    <color name="tertiary_two">#E3E3E3</color>
     <color name="quaternary">#4B4747</color>
     <color name="quinary">#F5F5F5</color>
 </resources>
