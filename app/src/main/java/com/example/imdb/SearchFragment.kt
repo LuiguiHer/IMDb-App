@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.imdb.MovieDetailsFragment.Companion.ARG_MOVIE
 import com.example.imdb.databinding.FragmentSearchBinding
 import com.squareup.picasso.Picasso
 
@@ -33,23 +35,37 @@ class SearchFragment : Fragment() {
     }
 
     private fun showMovies(movieList: List<Movie>){
-        if ( movieAdapter == null){
             val picasso = Picasso.get()
             movieAdapter = MovieAdapter(picasso,movieList){ movie ->
+                val args = Bundle().apply {
+                    putParcelable(ARG_MOVIE, movie)
+                }
+                findNavController().navigate(R.id.item_to_details_movies_series,args)
 
             }
             binding.movieList.adapter = movieAdapter
-
-        }
     }
+
 
     private fun movieList(): List<Movie> {
         return listOf(
-            Movie("Encanto","Encanto","movie",2022, listOf("familia","caricatura"),4,"Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M",null),
-            Movie("Marvel","Marvel","movie",2022, listOf("accion","aventura"),4,"Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M",null),
-            Movie("SpiderMan","SpiderMan","movie",2022, listOf("ficcion","aventura"),4,"Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://mx.web.img3.acsta.net/pictures/21/11/25/18/23/3142881.jpg","https://mx.web.img3.acsta.net/pictures/21/11/25/18/23/3142881.jpg",null),
-            Movie("Red","Red","movie",2022, listOf("infantil","drama"),4,"Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://static.wikia.nocookie.net/disney/images/b/be/Turning_Red_Poster.jpg/revision/latest?cb=20220117230032&path-prefix=es","https://pics.filmaffinity.com/Red-899479977-large.jpg",null),
-            Movie("Moonfall","MoonFall","movie",2022, listOf("accion","ficcion"),4,"Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M","https://pics.filmaffinity.com/Moonfall-138176660-large.jpg",null)
+            Movie("Encanto","Encanto","Encanto","movie","2022", arrayListOf("Infantil","Familia"),
+                arrayListOf("Alice Braga","Hemry Madera"),"4.5","Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M","https://static01.nyt.com/images/2022/03/16/arts/17encanto-reax-ESP-00/merlin_196958868_626089bd-510c-455b-831f-4fc2ef4738a9-articleLarge.jpg?quality=75&auto=webp&disable=upscale",null),
+
+            Movie("Doctor Strange","Doctor Strange","Doctor Strange en el multiverso de la locura","movie","2022", arrayListOf("Ficcion","Aventura"),
+                arrayListOf("Elizabeth Olsen","Benedict Cumberba.."),"4.9","El Dr. Stephen Strange abre un portal al multiverso al utilizar un hechizo prohibido. Ahora su equipo debe enfrentarse a una amenaza enorme.","https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRMcTX7_0hH2qslKSEgZ7G1guoeD0EQic8qMCAgQRO_tng1xfAP","https://i.blogs.es/2e407d/doctor-strange-en-el-multiverso-de-la-locura-cartel-poster/1366_2000.jpeg",null),
+
+            Movie("Hombre araña","Spider-Man","SpiderMan","movie","2021", arrayListOf("ficcion","aventura"),
+                arrayListOf("Tom Holand","Zendaya"),"5.0","Tras descubrirse la identidad secreta de Peter Parker como Spider-Man, la vida del joven se vuelve una locura. Peter decide pedirle ayuda al Doctor Extraño para recuperar su vida.","https://mx.web.img3.acsta.net/pictures/21/11/25/18/23/3142881.jpg","https://www.gamerfocus.co/wp-content/uploads/2022/05/spider-man_sin_camino_a_casa.png",null),
+
+            Movie("Rojo","Red","Red","Movie","2022", arrayListOf("infantil","drama"),
+                arrayListOf("Jordan Fisher","Rosalie Chiang"),"3.5","Mei Lee, una niña de 13 años un poco rara pero segura de sí misma, que se debate entre seguir siendo la hija obediente que su madre quiere que sea y el caos de la adolescencia.","https://static.wikia.nocookie.net/disney/images/b/be/Turning_Red_Poster.jpg/revision/latest?cb=20220117230032&path-prefix=es","https://cdn.milenio.com/uploads/media/2022/03/09/turning-red-la-nueva-pelicula.jpg",null),
+
+            Movie("Luna caida","MoonFall","MoonFall","Movie","2022", arrayListOf("accion","ficcion"),
+                arrayListOf("Halle Berry","Patrick Wilson"),"5.0","Una fuerza misteriosa golpea a la Luna fuera de su órbita y la envía en choque directo contra la Tierra a toda velocidad. Unas semanas antes del impacto con el mundo al borde de la aniquilación,","https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR-XqVXZ0iIsZhUa4OX9qdJBj11wnKMvuzC7aCeP4I2lmM7iPz5","https://d9u8u3s4.rocketcdn.me/wp-content/uploads/2022/02/Moonfall-pelicula-3-1155x640.jpg",null),
+
+            Movie("Gambito de Dama","Queens Gambit","the queen gambit","Miniserie de TV 2020","2020", arrayListOf("Drama"),
+                arrayListOf("Anya Taylor‑Joy","Thomas Brodie"),"4.5","La huérfana y prodigio del ajedrez, Beth Harmon, lucha contra la adicción mientras busca convertirse en la mejor jugadora de ajedrez del mundo.","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_LbPYzENOay4oOfpHaXM4-HU9-KRl5Amqc99wKmPPAH5FKgC","https://criticasinspoilers.com/wp-content/uploads/2020/12/titulo-copia.jpg",17)
         )
     }
 

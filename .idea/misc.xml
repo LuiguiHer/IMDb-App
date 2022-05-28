@@ -9,19 +9,25 @@
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/btn_icon_fb.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/btn_icon_google.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/btn_icon_ios.xml" value="0.1245" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/btn_icon_next.xml" value="0.1215" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button__icon_apps.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button__icon_fb.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button_principal.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button_search.xml" value="0.126" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button_secondary.xml" value="0.147" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/button_yellow.xml" value="0.1215" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/gender_background.xml" value="0.1215" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_back.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_back.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_fb.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_google.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_icon_ios.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_imdblogo.xml" value="0.167" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_next.xml" value="0.1215" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_sign_logo.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/ic_star.xml" value="0.1635" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/inputs_login.xml" value="0.1615" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/mini_vertical_linea.xml" value="0.1285" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/pppp.xml" value="0.1615" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/splash_background.xml" value="0.167" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/drawable/splash_logo.xml" value="0.1495" />
@@ -29,6 +35,7 @@
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/fragment_home.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/fragment_movie_details.xml" value="0.264" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/fragment_play.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/fragment_profile.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/herna/AndroidStudioProjects/IMDb/app/src/main/res/layout/fragment_search.xml" value="0.18115942028985507" />

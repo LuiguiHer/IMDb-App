@@ -18,5 +18,6 @@
     <string name="search">Buscar</string>
     <string name="play">Play</string>
     <string name="profile">Perfil</string>
+    <string name="title_original">(Titulo Original)</string>
 
 </resources>

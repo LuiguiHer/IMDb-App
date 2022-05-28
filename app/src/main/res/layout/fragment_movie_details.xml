@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="409dp"
+    android:layout_height="659dp"
+    tools:context=".MovieDetailsFragment">
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="52dp"
+        android:layout_height="35dp"
+        android:background="@drawable/btn_icon_back"
+        app:layout_constraintEnd_toStartOf="@id/item_title_one"
+        app:layout_constraintHorizontal_bias="0.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        tools:layout_editor_absoluteY="14dp" />
+
+    <TextView
+        android:id="@+id/item_title_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:textColor="@color/quaternary"
+        android:fontFamily="@font/roboto_bold"
+        android:textStyle="bold"
+        tools:text="Queens Gambit" />
+    <TextView
+        android:id="@+id/item_Linea"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_title_one"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:background="@color/tertiary_two"
+        />
+
+    <LinearLayout
+        android:id="@+id/container_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_Linea"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="45dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/figure_yellow_one"
+                android:layout_width="5dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/mini_vertical_linea"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/item_title_big"
+                android:layout_width="215dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/secondary"
+                android:textSize="25sp"
+                tools:text="Gambito de Dama" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_title_original"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/tertiary"
+                android:textSize="11sp"
+                android:layout_marginStart="18dp"
+                tools:text="the queens Gambit" />
+
+            <TextView
+                android:id="@+id/text_Original"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/title_original"
+                android:textColor="@color/tertiary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/tertiary"
+                android:layout_marginStart="18dp"
+                android:textSize="14sp"
+                tools:text="Mini Serie de TV" />
+
+            <TextView
+                android:id="@+id/item_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/tertiary"
+                android:textSize="14sp"
+                tools:text="2020" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/item_video"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@id/container_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/video_gambit"
+        android:layout_marginTop="10dp"
+        />
+
+    <!-- Description -->
+    <LinearLayout
+        android:id="@+id/container_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_video"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="40dp"
+        android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="90dp"
+                android:layout_height="135dp"
+                tools:src="@drawable/encanto" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+                <TextView
+                    android:id="@+id/item_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/tertiary"
+                    android:background="@drawable/gender_background"
+                    tools:text="Drama" />
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/ic_star"
+                    android:gravity="center"
+                    android:layout_marginStart="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/item_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/tertiary"
+                    tools:text="5.0"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_synopsis"
+                android:layout_width="234dp"
+                android:layout_height="98dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/quaternary"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="16sp"
+                tools:text="Dramasdghsdfjghjafj aefkjgkjfasgka akgjlksafgnj afsdgjkasgn askgjnakajnkl agjkhnñajkgh" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- chapter Guide  -->
+    <LinearLayout
+        android:id="@+id/container_chapters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/container_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/linea_two"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/tertiary_two"
+            android:gravity="center"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="40dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Guia de episodios"
+                android:textColor="@color/quaternary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/chapters_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tertiary"
+                android:textSize="12sp"
+                tools:ignore="SmallSp"
+                tools:text="7" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="episodios"
+                android:textColor="@color/tertiary"
+                android:textSize="12sp"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/btn_icon_next" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/linea_three"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/tertiary_two"
+            android:gravity="center"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@id/container_chapters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_yellow"
+        android:text="Agregar a mi lista de seguimiento"
+        android:textAllCaps="false"
+        android:textColor="@color/quaternary"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="19sp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

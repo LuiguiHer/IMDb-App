@@ -1,5 +1,6 @@
 package com.example.imdb
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,11 +26,14 @@ class MovieAdapter(
 
 
     inner  class MovieViewHolder(private val binding: ItemMovieBinding): RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n")
         fun bind(movie: Movie) {
             itemView.setOnClickListener {
                 onClick(movie)
             }
             picasso.load(movie.imageUrl).into(binding.movieImg)
+            binding.movieYear.text = movie.year
+            binding.movieActors.text = movie.principal_actors[0] +", "+ movie.principal_actors[1]
             binding.movieTitle.text = movie.title
         }
 

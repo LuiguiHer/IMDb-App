@@ -14,7 +14,11 @@
         android:id="@+id/searchFragment"
         android:name="com.example.imdb.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_movieDetailsFragment"
+            app:destination="@id/item_to_details_movies_series" />
+    </fragment>
     <fragment
         android:id="@+id/playFragment"
         android:name="com.example.imdb.PlayFragment"
@@ -25,4 +29,11 @@
         android:name="com.example.imdb.profileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/item_to_details_movies_series"
+        android:name="com.example.imdb.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+
+    </fragment>
 </navigation>
