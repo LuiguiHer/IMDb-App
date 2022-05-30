@@ -215,7 +215,7 @@
                 android:layout_width="234dp"
                 android:layout_height="98dp"
                 android:layout_marginTop="12dp"
-                android:textColor="@color/quaternary"
+                android:textColor="@color/secondary"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="16sp"
                 tools:text="Dramasdghsdfjghjafj aefkjgkjfasgka akgjlksafgnj afsdgjkasgn askgjnakajnkl agjkhnñajkgh" />

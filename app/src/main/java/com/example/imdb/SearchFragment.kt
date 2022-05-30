@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imdb.MovieDetailsFragment.Companion.ARG_MOVIE
 import com.example.imdb.databinding.FragmentSearchBinding
 import com.squareup.picasso.Picasso
@@ -35,8 +36,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun showMovies(movieList: List<Movie>){
-            val picasso = Picasso.get()
-            movieAdapter = MovieAdapter(picasso,movieList){ movie ->
+        val picasso = Picasso.get()
+        movieAdapter = MovieAdapter(picasso,movieList){ movie ->
                 val args = Bundle().apply {
                     putParcelable(ARG_MOVIE, movie)
                 }
@@ -44,11 +45,15 @@ class SearchFragment : Fragment() {
 
             }
             binding.movieList.adapter = movieAdapter
+
     }
 
 
     private fun movieList(): List<Movie> {
         return listOf(
+            Movie("Stranger Things","Stranger Things","Stranger Things","Serie de TV 2016","2022", arrayListOf("Misterio","Drama"),
+                arrayListOf("Finn Wolfhard","Millie Bobby Brown"),"5.0","Cuando un niño desaparece, sus amigos, la familia y la policía se ven envueltos en una serie de eventos misteriosos al tratar de encontrarlo.","https://images-na.ssl-images-amazon.com/images/M/MV5BMjEzMDAxOTUyMV5BMl5BanBnXkFtZTgwNzAxMzYzOTE@._V1_.jpg","https://sm.ign.com/ign_es/feature/s/stranger-t/stranger-things-season-4-exclusive-trailer-breakdown-with-th_81ku.jpg",32),
+
             Movie("Encanto","Encanto","Encanto","movie","2022", arrayListOf("Infantil","Familia"),
                 arrayListOf("Alice Braga","Hemry Madera"),"4.5","Una joven colombiana puede ser la última esperanza para su familia, cuando descubre que la magia que rodea a Encanto, un lugar encantado que bendice a los niños con dones únicos, se encuentra en serio peligro","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsifNBbCd9akddbx7-cIBMNVyZ2TXCR5ptbIx9M9_lt0KhRp6M","https://static01.nyt.com/images/2022/03/16/arts/17encanto-reax-ESP-00/merlin_196958868_626089bd-510c-455b-831f-4fc2ef4738a9-articleLarge.jpg?quality=75&auto=webp&disable=upscale",null),
 
