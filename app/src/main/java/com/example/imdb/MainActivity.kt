@@ -12,6 +12,7 @@ import com.example.imdb.database.User
 import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         binding.btnLogin.setOnClickListener {
             binding.textErrorp.text = null
             if (binding.inputUser.text.isEmpty()) {
@@ -51,7 +53,9 @@ class MainActivity : AppCompatActivity() {
             } else if (binding.inputPass.text.isEmpty()) {
                 binding.textErrorp.text = "Contraseña requerida"
             } else
+                println(existUser())
                 access(existUser())
+
         }
 
 
@@ -73,7 +77,8 @@ class MainActivity : AppCompatActivity() {
     private fun access(user: User?){
         if (user != null){
             Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
-            val start = Intent(this, AfterLogin::class.java)
+            val start = Intent(this, AfterLoginActivity::class.java)
+            start.putExtra("name_user", user.name)
             startActivity(start)
             clearInputs()
         }else{
@@ -84,10 +89,10 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    private fun existUser(): User{
+     private fun existUser(): User{
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
-            "data_uses"
+            "data_user"
         ).allowMainThreadQueries().build()
         val userDao = db.userDao()
         val user = binding.inputUser.text.toString()

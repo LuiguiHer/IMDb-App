@@ -13,6 +13,7 @@ import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivitySignUpBinding
 import kotlinx.coroutines.launch
 
+@Suppress("SENSELESS_COMPARISON")
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
 
@@ -34,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
                         binding.inputPassword.text!!.isNotEmpty()){
                         addUserToDatabase()
                         clearInputs()
+                        finish()
                     }else {
                         Toast.makeText(
                             applicationContext,
@@ -84,15 +86,15 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-    fun existUser(user:User?){
+    private fun existUser(user:User?){
         if (user != null){
             binding.tilEmail.error = "correo en uso"
         }
     }
-    fun emailFound(): User {
+    private fun emailFound(): User {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
-            "data_uses"
+            "data_user"
         ).allowMainThreadQueries().build()
         val userDao = db.userDao()
         return userDao.getUserByEmail(binding.inputEmail.text.toString())
@@ -106,16 +108,16 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun clearInputs() {
+    private fun clearInputs() {
         binding.inputName.setText("")
         binding.inputEmail.setText("")
         binding.inputPassword.setText("")
     }
 
-    fun addUserToDatabase() {
+    private fun addUserToDatabase() {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
-            "data_uses"
+            "data_user"
         ).allowMainThreadQueries().build()
         val userDao = db.userDao()
         val name = binding.inputName.text.toString()
@@ -123,7 +125,7 @@ class SignUpActivity : AppCompatActivity() {
         val password = binding.inputPassword.text.toString()
 
         lifecycleScope.launch {
-            val user = User(name, email, password)
+            val user = User(email, name, password)
             userDao.addUser(user)
             Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
 
@@ -134,7 +136,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun name() {
+    private fun name() {
         if (
             binding.inputPassword.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()
@@ -145,7 +147,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
 
-    fun email() {
+    private fun email() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputPassword.text.toString().isNotEmpty()
@@ -156,7 +158,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
 
-    fun password() {
+    private fun password() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()
