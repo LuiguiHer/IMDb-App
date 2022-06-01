@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_play" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.imdb.profileFragment"
+        android:name="com.example.imdb.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment

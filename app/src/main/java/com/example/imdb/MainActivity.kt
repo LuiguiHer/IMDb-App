@@ -54,10 +54,9 @@ class MainActivity : AppCompatActivity() {
                 binding.textErrorp.text = "Contraseña requerida"
             } else
                 println(existUser())
-                access(existUser())
+            access(existUser())
 
         }
-
 
     }
 
@@ -74,22 +73,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun access(user: User?){
-        if (user != null){
+    private fun access(user: User?) {
+        if (user != null) {
             Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
             val start = Intent(this, AfterLoginActivity::class.java)
             start.putExtra("name_user", user.name)
             startActivity(start)
             clearInputs()
-        }else{
+        } else {
             clearInputs()
             clearKeyboard()
             binding.Layout.clearFocus()
-            "Usuario o Contraseña invalido".also { binding.txtError.text = it}
-            }
+            "Usuario o Contraseña invalido".also { binding.txtError.text = it }
+        }
     }
 
-     private fun existUser(): User{
+    private fun existUser(): User {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
             "data_user"
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         val userDao = db.userDao()
         val user = binding.inputUser.text.toString()
         val pass = binding.inputPass.text.toString()
-        return userDao.getUserByEmailPass(user,pass)
+        return userDao.getUserByEmailPass(user, pass)
     }
 
     private fun changeBtn() {
@@ -108,6 +107,5 @@ class MainActivity : AppCompatActivity() {
         } else
             binding.btnLogin.setBackgroundResource(R.drawable.button_principal)
     }
-
 
 }

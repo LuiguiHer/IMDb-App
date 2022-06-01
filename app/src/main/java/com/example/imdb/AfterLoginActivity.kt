@@ -18,5 +18,9 @@ class AfterLoginActivity : AppCompatActivity() {
         val intent = intent
         userName = intent.getStringExtra("name_user").toString()
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavigationView.setupWithNavController(navController)
+
     }
 }

@@ -26,24 +26,25 @@ class SignUpActivity : AppCompatActivity() {
 
         //Send data to db
         binding.btnAccept.setOnClickListener {
-            if (binding.inputPassword.text.toString().length < 8){
+            if (binding.inputPassword.text.toString().length < 8) {
                 binding.tilPassword.error = "error password"
-            }else{
-                if (emailFound() == null){
+            } else {
+                if (emailFound() == null) {
                     binding.tilPassword.error = null
                     if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
-                        binding.inputPassword.text!!.isNotEmpty()){
+                        binding.inputPassword.text!!.isNotEmpty()
+                    ) {
                         addUserToDatabase()
                         clearInputs()
                         finish()
-                    }else {
+                    } else {
                         Toast.makeText(
                             applicationContext,
                             "Todos los campos son requeridos",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                }else{
+                } else {
                     Toast.makeText(applicationContext, "Correo en Uso", Toast.LENGTH_SHORT).show()
                 }
 
@@ -68,7 +69,7 @@ class SignUpActivity : AppCompatActivity() {
         }
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                binding.tilEmail.error =null
+                binding.tilEmail.error = null
                 existUser(emailFound())
                 password()
 
@@ -83,14 +84,12 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-
-
-
-    private fun existUser(user:User?){
-        if (user != null){
+    private fun existUser(user: User?) {
+        if (user != null) {
             binding.tilEmail.error = "correo en uso"
         }
     }
+
     private fun emailFound(): User {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,

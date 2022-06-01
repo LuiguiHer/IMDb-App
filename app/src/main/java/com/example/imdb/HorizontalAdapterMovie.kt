@@ -12,7 +12,7 @@ class HorizontalAdapterMovie(
     private val picasso: Picasso,
     private val movieList: List<Movie>,
     private val onClick: (Movie) -> Unit
-): RecyclerView.Adapter<HorizontalAdapterMovie.MovieViewHolder>() {
+) : RecyclerView.Adapter<HorizontalAdapterMovie.MovieViewHolder>() {
 
     override fun getItemCount(): Int = movieList.size
 
@@ -20,12 +20,17 @@ class HorizontalAdapterMovie(
         holder.bind(movieList[position])
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalAdapterMovie.MovieViewHolder {
-        val binding = ItemMovieHorizontalBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): HorizontalAdapterMovie.MovieViewHolder {
+        val binding =
+            ItemMovieHorizontalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(binding)
     }
 
-    inner  class MovieViewHolder(private val binding: ItemMovieHorizontalBinding): RecyclerView.ViewHolder(binding.root){
+    inner class MovieViewHolder(private val binding: ItemMovieHorizontalBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(movie: Movie) {
             itemView.setOnClickListener {

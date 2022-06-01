@@ -7,11 +7,11 @@
     android:layout_marginTop="15dp"
     tools:context=".HomeFragment">
 
-
     <ImageView
         android:id="@+id/movie_video"
         android:layout_width="match_parent"
         android:layout_height="210dp"
+        android:contentDescription="@string/home"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_play"
+        android:contentDescription="@string/home"
         app:layout_constraintTop_toTopOf="@id/movie_video"
         app:layout_constraintEnd_toEndOf="@id/movie_video"
         app:layout_constraintStart_toStartOf="@id/movie_video"
@@ -34,6 +35,7 @@
         android:id="@+id/movie_img"
         android:layout_width="130dp"
         android:layout_height="180dp"
+        android:contentDescription="@string/home"
         app:layout_constraintTop_toBottomOf="@id/movie_video"
         android:layout_marginTop="-110dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +66,7 @@
         app:layout_constraintStart_toEndOf="@id/movie_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
-        android:text="Trailer Oficial"
+        android:text="@string/trailer_oficial"
         android:fontFamily="@font/roboto"
         android:layout_marginTop="6dp"
         android:textSize="14sp"
@@ -108,7 +110,7 @@
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/secondary"
             android:textSize="20sp"
-            android:text="Las mejores selecciones" />
+            android:text="@string/las_mejores_selecciones" />
 
     </LinearLayout>
 

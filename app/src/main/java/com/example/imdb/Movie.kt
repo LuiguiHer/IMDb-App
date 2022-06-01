@@ -18,6 +18,4 @@ data class Movie(
     val imageUrl: String,
     val videoUrl: String,
     val chapters: Int?
-): Parcelable {
-
-}
+): Parcelable

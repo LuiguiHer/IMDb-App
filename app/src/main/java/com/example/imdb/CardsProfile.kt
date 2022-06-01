@@ -7,6 +7,4 @@ class CardsProfile(
     val title: String,
     val Description: String,
     val values: Int = 0
-): Parcelable {
-
-}
+): Parcelable

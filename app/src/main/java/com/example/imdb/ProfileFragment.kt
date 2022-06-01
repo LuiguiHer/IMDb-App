@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.imdb.databinding.FragmentProfileBinding
 
-class profileFragment : Fragment() {
-    private var cardsAdapter : CardsAdapter? = null
+class ProfileFragment : Fragment() {
+    private var cardsAdapter: CardsAdapter? = null
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -23,33 +23,33 @@ class profileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(inflater,container,false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onResume() {
         super.onResume()
-        val userName  = (activity as AfterLoginActivity).userName
+        val userName = (activity as AfterLoginActivity).userName
         binding.itemNameUser.text = userName
         showCard(cardsList())
 
     }
 
-    private fun showCard(cardsProfile: List<CardsProfile>){
-        cardsAdapter = CardsAdapter(cardsProfile){ movie ->
+    private fun showCard(cardsProfile: List<CardsProfile>) {
+        cardsAdapter = CardsAdapter(cardsProfile) { movie ->
             val args = Bundle().apply {
                 putParcelable(MovieDetailsFragment.ARG_MOVIE, movie)
             }
-            findNavController().navigate(R.id.item_to_details_movies_series,args)
+            findNavController().navigate(R.id.item_to_details_movies_series, args)
         }
         binding.reciclerViewCards.adapter = cardsAdapter
     }
 
     private fun cardsList(): List<CardsProfile> {
         return listOf(
-            CardsProfile("Calificaciones","Calificar y obtener recomendaciones",0),
-            CardsProfile("Listas","Agregar a Listas",4),
-            CardsProfile("Comentarios","Aun sin comentarios",0),
+            CardsProfile("Calificaciones", "Calificar y obtener recomendaciones", 0),
+            CardsProfile("Listas", "Agregar a Listas", 4),
+            CardsProfile("Comentarios", "Aun sin comentarios", 0),
         )
 
 

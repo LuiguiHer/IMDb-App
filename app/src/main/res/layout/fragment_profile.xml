@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="25dp"
-    tools:context=".profileFragment">
+    tools:context=".ProfileFragment">
 
 
 
@@ -111,7 +111,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="20sp"
-                android:text="Lista de seguimiento" />
+                android:text="@string/lista_de_seguimiento" />
         </LinearLayout>
 
         <TextView
@@ -120,7 +120,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="45dp"
             android:paddingEnd="15dp"
-            android:text="Crear una lista de seguimiento para no perderte ninguna pelicula o serie de Tv"
+            android:text="@string/crear_una_lista_de_seguimiento_para_no_perderte_ninguna_pelicula_o_serie_de_tv"
             />
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
@@ -131,7 +131,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_yellow"
-            android:text="Empieza tu lista de seguimiento"
+            android:text="@string/empieza_tu_lista_de_seguimiento"
             android:textAllCaps="false"
             android:textColor="@color/quaternary"
             android:fontFamily="@font/roboto_bold"
@@ -174,7 +174,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="20sp"
-                android:text="Vistas recientes" />
+                android:text="@string/vistas_recientes" />
         </LinearLayout>
 
         <TextView
@@ -183,7 +183,7 @@
             android:layout_marginHorizontal="45dp"
             android:layout_marginTop="10dp"
             android:paddingEnd="15dp"
-            android:text="No has Visitado ninguna pagina reciente."
+            android:text="@string/no_has_visitado_ninguna_pagina_reciente"
             />
         <TextView
             android:layout_width="match_parent"
@@ -222,7 +222,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="20sp"
-                android:text="Personas Favoritas" />
+                android:text="@string/personas_favoritas" />
         </LinearLayout>
 
         <TextView
@@ -231,7 +231,7 @@
             android:layout_marginHorizontal="45dp"
             android:layout_marginTop="10dp"
             android:paddingEnd="15dp"
-            android:text="Aun no has marcado a ninguna persona como favorita"
+            android:text="@string/aun_no_has_marcado_a_ninguna_persona_como_favorita"
             />
         <TextView
             android:layout_width="match_parent"
@@ -270,7 +270,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="20sp"
-                android:text="Personas Favoritas" />
+                 />
         </LinearLayout>
 
         <TextView
@@ -278,9 +278,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="45dp"
             android:layout_marginTop="10dp"
-            android:paddingEnd="15dp"
-            android:text="Aun no has marcado a ninguna persona como favorita"
-            />
+            android:paddingEnd="15dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="14dp"

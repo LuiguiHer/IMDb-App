@@ -10,28 +10,29 @@
         android:id="@+id/button_back"
         android:layout_width="52dp"
         android:layout_height="35dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/btn_icon_back"
         app:layout_constraintEnd_toStartOf="@id/item_title_one"
         app:layout_constraintHorizontal_bias="0.20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        tools:layout_editor_absoluteY="14dp" />
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/item_title_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:textColor="@color/quaternary"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:textSize="15sp"
-        android:textColor="@color/quaternary"
-        android:fontFamily="@font/roboto_bold"
-        android:textStyle="bold"
+        tools:ignore="TextContrastCheck,TextContrastCheck"
         tools:text="Queens Gambit" />
     <TextView
         android:id="@+id/item_Linea"
@@ -75,11 +76,12 @@
                 android:id="@+id/item_title_big"
                 android:layout_width="215dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="25sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck"
                 tools:text="Gambito de Dama" />
         </LinearLayout>
 
@@ -145,6 +147,7 @@
         android:id="@+id/item_video"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:contentDescription="@string/movie_details"
         app:layout_constraintTop_toBottomOf="@id/container_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -167,6 +170,7 @@
             <ImageView
                 android:id="@+id/item_image"
                 android:layout_width="90dp"
+                android:contentDescription="@string/movie_details"
                 android:layout_height="135dp"
                 tools:src="@drawable/encanto" />
         <LinearLayout
@@ -215,9 +219,10 @@
                 android:layout_width="234dp"
                 android:layout_height="98dp"
                 android:layout_marginTop="12dp"
-                android:textColor="@color/secondary"
                 android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/secondary"
                 android:textSize="16sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck"
                 tools:text="Dramasdghsdfjghjafj aefkjgkjfasgka akgjlksafgnj afsdgjkasgn askgjnakajnkl agjkhnñajkgh" />
 
         </LinearLayout>
@@ -253,9 +258,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="100dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Guia de episodios"
+                android:text="@string/guia_de_episodios"
                 android:textColor="@color/quaternary"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
             <TextView
                 android:id="@+id/chapters_number"
@@ -270,7 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="episodios"
+                android:text="@string/episodios"
                 android:textColor="@color/tertiary"
                 android:textSize="12sp"
                 tools:ignore="SmallSp" />
@@ -278,7 +284,8 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/btn_icon_next" />
+                android:background="@drawable/btn_icon_next"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <TextView
@@ -300,7 +307,7 @@
         android:paddingHorizontal="15dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_yellow"
-        android:text="Agregar a mi lista de seguimiento"
+        android:text="@string/agregar_a_mi_lista_de_seguimiento"
         android:textAllCaps="false"
         android:textColor="@color/quaternary"
         android:fontFamily="@font/roboto_bold"
