@@ -107,5 +107,4 @@ class MainActivity : AppCompatActivity() {
         } else
             binding.btnLogin.setBackgroundResource(R.drawable.button_principal)
     }
-
 }

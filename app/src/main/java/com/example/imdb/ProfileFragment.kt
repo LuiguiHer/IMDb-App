@@ -1,5 +1,6 @@
 package com.example.imdb
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +13,6 @@ class ProfileFragment : Fragment() {
     private var cardsAdapter: CardsAdapter? = null
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +27,6 @@ class ProfileFragment : Fragment() {
         val userName = (activity as AfterLoginActivity).userName
         binding.itemNameUser.text = userName
         showCard(cardsList())
-
     }
 
     private fun showCard(cardsProfile: List<CardsProfile>) {
@@ -51,8 +45,5 @@ class ProfileFragment : Fragment() {
             CardsProfile("Listas", "Agregar a Listas", 4),
             CardsProfile("Comentarios", "Aun sin comentarios", 0),
         )
-
-
     }
-
 }

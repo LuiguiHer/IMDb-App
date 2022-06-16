@@ -40,7 +40,5 @@ class HorizontalAdapterMovie(
             binding.itemTitle.text = movie.title
             binding.itemRating.text = movie.rating
         }
-
     }
-
 }

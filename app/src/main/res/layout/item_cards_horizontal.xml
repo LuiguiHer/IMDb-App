@@ -39,7 +39,7 @@
             tools:text="Calificacione" />
 
         <TextView
-            android:id="@+id/card_number"
+            android:id="@+id/card_amount"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             tools:text="0" />

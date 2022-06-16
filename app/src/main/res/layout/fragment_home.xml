@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="409dp"
-    android:layout_height="659dp"
+    android:layout_width="@dimen/F_width_409dp"
+    android:layout_height="@dimen/F_height_659dp"
     android:layout_marginTop="15dp"
     tools:context=".HomeFragment">
 
     <ImageView
         android:id="@+id/movie_video"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="@dimen/HomeF_img_height_210dp"
         android:contentDescription="@string/home"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +33,11 @@
 
     <ImageView
         android:id="@+id/movie_img"
-        android:layout_width="130dp"
-        android:layout_height="180dp"
+        android:layout_width="@dimen/HomeF_img_130dp"
+        android:layout_height="@dimen/HomeF_img_180dp"
         android:contentDescription="@string/home"
         app:layout_constraintTop_toBottomOf="@id/movie_video"
-        android:layout_marginTop="-110dp"
+        android:layout_marginTop="@dimen/HomeF_margin__110dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,8 +52,8 @@
         app:layout_constraintStart_toEndOf="@id/movie_img"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Stranger Things"
-        android:textSize="20sp"
-        android:layout_marginTop="8dp"
+        android:textSize="@dimen/HomeF_txtSZ_20sp"
+        android:layout_marginTop="@dimen/HomeF_8dp"
         app:layout_constraintHorizontal_bias="0.2"
         android:fontFamily="@font/roboto_bold"
         android:textColor="@color/quaternary"
@@ -68,20 +68,19 @@
         app:layout_constraintHorizontal_bias="0.15"
         android:text="@string/trailer_oficial"
         android:fontFamily="@font/roboto"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="@dimen/HomeF_margin_6dp"
         android:textSize="14sp"
         />
-    <TextView
+    <View
         android:id="@+id/item_Linea"
         android:layout_width="match_parent"
         android:layout_height="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/HomeF_margin_20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_trailer"
         android:gravity="center"
-        android:textSize="15sp"
         android:background="@color/tertiary_two"
         />
     <LinearLayout
@@ -95,21 +94,21 @@
         >
         <TextView
             android:id="@+id/figure_yellow_one"
-            android:layout_width="8dp"
+            android:layout_width="@dimen/HomeF_8dp"
             android:layout_height="29dp"
             android:layout_marginTop="14dp"
             android:background="@drawable/mini_vertical_linea"
             android:textSize="25sp"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="@dimen/HomeF_margin_10dp"/>
         <TextView
             android:id="@+id/item_better_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/HomeF_margin_10dp"
+            android:layout_marginStart="@dimen/HomeF_margin_10dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/secondary"
-            android:textSize="20sp"
+            android:textSize="@dimen/HomeF_txtSZ_20sp"
             android:text="@string/las_mejores_selecciones" />
 
     </LinearLayout>

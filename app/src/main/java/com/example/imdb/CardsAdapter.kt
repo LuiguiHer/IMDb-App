@@ -29,8 +29,7 @@ class CardsAdapter (
             }
             binding.cardTitle.text = card.title
             binding.cardDescription.text = card.Description
-            binding.cardNumber.text = card.values.toString()
+            binding.cardAmount.text = card.amount.toString()
         }
-
     }
 }

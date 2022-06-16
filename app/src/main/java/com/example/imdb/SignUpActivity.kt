@@ -13,7 +13,7 @@ import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivitySignUpBinding
 import kotlinx.coroutines.launch
 
-@Suppress("SENSELESS_COMPARISON")
+
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
 
@@ -29,7 +29,7 @@ class SignUpActivity : AppCompatActivity() {
             if (binding.inputPassword.text.toString().length < 8) {
                 binding.tilPassword.error = "error password"
             } else {
-                if (emailFound() == null) {
+                if (emailFound()) {
                     binding.tilPassword.error = null
                     if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
                         binding.inputPassword.text!!.isNotEmpty()
@@ -84,19 +84,24 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun existUser(user: User?) {
-        if (user != null) {
+    private fun existUser(user: Boolean) {
+        if (!user) {
             binding.tilEmail.error = "correo en uso"
         }
     }
 
-    private fun emailFound(): User {
+    private fun emailFound(): Boolean {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
             "data_user"
         ).allowMainThreadQueries().build()
+        var boolean = true
         val userDao = db.userDao()
-        return userDao.getUserByEmail(binding.inputEmail.text.toString())
+        val user: User?  = userDao.getUserByEmail(binding.inputEmail.text.toString())
+        if (user != null){
+            boolean=false
+        }
+        return boolean
     }
 
     private fun clearKeyboard() {

@@ -36,6 +36,5 @@ class MovieAdapter(
             binding.movieActors.text = movie.principal_actors[0] +", "+ movie.principal_actors[1]
             binding.movieTitle.text = movie.title
         }
-
     }
 }
