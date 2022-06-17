@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.main
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -8,9 +8,12 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.room.Room
+import com.example.imdb.AfterLoginActivity
+import com.example.imdb.R
 import com.example.imdb.database.User
 import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivityMainBinding
+import com.example.imdb.signUp.SignUpActivity
 
 
 class MainActivity : AppCompatActivity() {
