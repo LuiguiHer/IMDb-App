@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.signUp
 
 import android.app.Activity
 import android.content.Intent
@@ -7,14 +7,14 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
+import com.example.imdb.main.MainActivity
+import com.example.imdb.R
 import com.example.imdb.database.User
-import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivitySignUpBinding
 import kotlinx.coroutines.launch
 
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity(), SignUpContract.View {
     lateinit var binding: ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,21 +22,25 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.Layout.setOnClickListener { clearKeyboard() }
+        val presenter = SignUpPresenter(this,SignUpModel(),applicationContext)
 
-        //Send data to db
+        binding.Layout.setOnClickListener {
+            clearKeyboard()
+        }
+
+        //Verify information
         binding.btnAccept.setOnClickListener {
             if (binding.inputPassword.text.toString().length < 8) {
                 binding.tilPassword.error = "error password"
             } else {
-                if (emailFound()) {
+                if (!presenter.emailFound(email=getUserData().email)) {
                     binding.tilPassword.error = null
                     if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
                         binding.inputPassword.text!!.isNotEmpty()
                     ) {
-                        addUserToDatabase()
+                        lifecycleScope.launch { presenter.addUserToDatabase() }
+                        Toast.makeText(applicationContext,"Usuario registrado!",Toast.LENGTH_SHORT).show()
                         clearInputs()
-                        finish()
                     } else {
                         Toast.makeText(
                             applicationContext,
@@ -56,13 +60,13 @@ class SignUpActivity : AppCompatActivity() {
         binding.inputName.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.tilEmail.error = null
-                existUser(emailFound())
+                existUser(presenter.emailFound(email=getUserData().email))
                 name()
             }
         }
         binding.inputEmail.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                existUser(emailFound())
+                existUser(presenter.emailFound(email = getUserData().email))
                 binding.tilEmail.error = null
                 email()
             }
@@ -70,7 +74,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.tilEmail.error = null
-                existUser(emailFound())
+                existUser(presenter.emailFound(email=getUserData().email))
                 password()
 
             }
@@ -84,27 +88,13 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun existUser(user: Boolean) {
-        if (!user) {
+    override fun existUser(verifyEmail: Boolean) {
+        if (verifyEmail) {
             binding.tilEmail.error = "correo en uso"
         }
     }
 
-    private fun emailFound(): Boolean {
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_user"
-        ).allowMainThreadQueries().build()
-        var boolean = true
-        val userDao = db.userDao()
-        val user: User?  = userDao.getUserByEmail(binding.inputEmail.text.toString())
-        if (user != null){
-            boolean=false
-        }
-        return boolean
-    }
-
-    private fun clearKeyboard() {
+    override fun clearKeyboard() {
         val view = this.currentFocus
         if (view != null) {
             val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -112,35 +102,20 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun clearInputs() {
+    override fun clearInputs() {
         binding.inputName.setText("")
         binding.inputEmail.setText("")
         binding.inputPassword.setText("")
     }
 
-    private fun addUserToDatabase() {
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_user"
-        ).allowMainThreadQueries().build()
-        val userDao = db.userDao()
+    override fun getUserData() : User {
         val name = binding.inputName.text.toString()
         val email = binding.inputEmail.text.toString()
         val password = binding.inputPassword.text.toString()
-
-        lifecycleScope.launch {
-            val user = User(email, name, password)
-            userDao.addUser(user)
-            Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
-
-            val users = userDao.readAllData()
-            for (i in users) {
-                println("${i.name} - ${i.email} - ${i.password}")
-            }
-        }
+        return User(email,name, password)
     }
 
-    private fun name() {
+    override fun name() {
         if (
             binding.inputPassword.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()
@@ -151,7 +126,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
 
-    private fun email() {
+    override fun email() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputPassword.text.toString().isNotEmpty()
@@ -162,7 +137,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
 
-    private fun password() {
+    override fun password() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()
