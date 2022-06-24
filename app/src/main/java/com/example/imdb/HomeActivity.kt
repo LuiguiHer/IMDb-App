@@ -4,15 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.imdb.databinding.ActivityAfterLoginBinding
+import com.example.imdb.databinding.ActivityHomeBinding
 
-class AfterLoginActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     lateinit var userName: String
-    lateinit var binding: ActivityAfterLoginBinding
+    lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAfterLoginBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val intent = intent

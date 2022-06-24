@@ -2,31 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/F_width_409dp"
-    android:layout_height="@dimen/F_height_659dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
      <androidx.appcompat.widget.SearchView
         android:id="@+id/btn_search"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
+        android:layout_height="@dimen/dp50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginHorizontal="60dp"
+        android:layout_marginHorizontal="@dimen/dp60"
         android:queryHint="@string/search"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp40"
         android:background="@drawable/button_search"
         />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movie_list"
-        android:layout_width="350dp"
-        android:layout_height="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="@dimen/dp350"
+        android:layout_height="@dimen/dp560"
+        android:layout_marginTop="@dimen/dp10"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

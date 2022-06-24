@@ -1,6 +1,5 @@
 package com.example.imdb
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,7 +23,7 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val userName = (activity as AfterLoginActivity).userName
+        val userName = (activity as HomeActivity).userName
         binding.itemNameUser.text = userName
         showCard(cardsList())
     }

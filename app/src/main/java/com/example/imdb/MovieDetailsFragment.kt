@@ -42,8 +42,8 @@ class MovieDetailsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun initializeView() {
         val picasso = Picasso.get()
-        binding.itemTitleOne.text = movie.subTitle
-        binding.itemTitleBig.text = movie.title
+        binding.itemSubTitle.text = movie.subTitle
+        binding.itemTitle.text = movie.title
         binding.itemTitleOriginal.text = movie.titleOrigin
         binding.itemYear.text = " - " + movie.year
         binding.itemType.text = movie.type

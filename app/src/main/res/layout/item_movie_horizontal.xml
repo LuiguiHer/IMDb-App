@@ -2,10 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="120dp"
-    android:layout_height="240dp"
-    android:layout_marginStart="15dp"
-    app:cardElevation="8dp">
+    android:layout_width="@dimen/dpCard120"
+    android:layout_height="@dimen/dp240"
+    android:layout_marginStart="@dimen/dp15"
+    app:cardElevation="@dimen/dp8">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -14,16 +14,16 @@
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="wrap_content"
-            android:layout_height="170dp"
-            android:paddingHorizontal="-18dp"
+            android:layout_height="@dimen/dp170"
+            android:paddingHorizontal="@dimen/dpM18"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/encanto" />
 
         <ImageView
             android:id="@+id/item_add_list"
-            android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/dp25"
+            android:layout_height="@dimen/dp30"
             android:background="@drawable/ic_bookmark_add"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,23 +32,23 @@
             android:id="@+id/container_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/dp8"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_image">
 
-            <TextView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="8dp"
+            <View
+                android:layout_width="@dimen/dp18"
+                android:layout_height="@dimen/dp18"
+                android:layout_marginStart="@dimen/dp8"
                 android:background="@drawable/ic_stars_2" />
 
             <TextView
                 android:id="@+id/item_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:textSize="11sp"
+                android:layout_marginStart="@dimen/dp4"
+                android:textSize="@dimen/sp12"
                 tools:text="5.0" />
         </LinearLayout>
 
@@ -65,17 +65,17 @@
                 android:id="@+id/item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/dp8"
                 android:fontFamily="@font/roboto_bold"
-                android:textSize="12sp"
+                android:textSize="@dimen/sp12"
                 tools:text="Encanto" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="17dp"
-            android:layout_height="17dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="5dp"
+            android:layout_width="@dimen/dp17"
+            android:layout_height="@dimen/dp17"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginEnd="@dimen/dp4"
             android:background="@drawable/ic_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/constainer_title" />

@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
         android:background="@drawable/btn_icon_back"
         android:backgroundTint="@color/secondary"
         app:layout_constraintEnd_toEndOf="parent"

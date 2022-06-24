@@ -10,16 +10,16 @@ import android.widget.Toast
 import androidx.room.Room
 import com.example.imdb.database.User
 import com.example.imdb.database.UserDatabase
-import com.example.imdb.databinding.ActivityMainBinding
+import com.example.imdb.databinding.ActivityLoginBinding
 
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class LoginActivity : AppCompatActivity() {
+    lateinit var binding: ActivityLoginBinding
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.txtSignUp.setOnClickListener {
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     private fun access(user: User?) {
         if (user != null) {
             Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
-            val start = Intent(this, AfterLoginActivity::class.java)
+            val start = Intent(this, HomeActivity::class.java)
             start.putExtra("name_user", user.name)
             startActivity(start)
             clearInputs()

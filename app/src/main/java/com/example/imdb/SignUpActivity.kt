@@ -78,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
 
         //btn back
         binding.btnBack.setOnClickListener {
-            val start = Intent(this, MainActivity::class.java)
+            val start = Intent(this, LoginActivity::class.java)
             startActivity(start)
             finish()
         }

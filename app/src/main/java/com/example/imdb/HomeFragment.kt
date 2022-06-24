@@ -10,9 +10,10 @@ import com.example.imdb.databinding.FragmentHomeBinding
 import com.squareup.picasso.Picasso
 
 class HomeFragment : Fragment() {
-    private val listMovies = MovieHelper().movieList()
+
     private var horizontalAdapterMovie: HorizontalAdapterMovie? = null
     private var _binding: FragmentHomeBinding? = null
+    private val picasso = Picasso.get()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,19 +26,17 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        firstMovie(listMovies[7])
-        showMovies(listMovies)
+        firstMovie(MovieHelper().movieList()[7])
+        showMovies(MovieHelper().movieList())
     }
 
     private fun firstMovie(movie: Movie) {
-        val picasso = Picasso.get()
         binding.movieTitle.text = movie.title
         picasso.load(movie.videoUrl).into(binding.movieVideo)
         picasso.load(movie.imageUrl).into(binding.movieImg)
     }
 
     private fun showMovies(movieList: List<Movie>) {
-        val picasso = Picasso.get()
         horizontalAdapterMovie = HorizontalAdapterMovie(picasso, movieList) { movie ->
             val args = Bundle().apply {
                 putParcelable(MovieDetailsFragment.ARG_MOVIE, movie)
