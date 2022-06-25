@@ -28,7 +28,6 @@
             android:textColor="@color/secondary"
             android:textSize="@dimen/sp22"
             tools:text="Encanto" />
-
         <TextView
             android:id="@+id/movie_year"
             android:layout_width="@dimen/dp130"
@@ -39,7 +38,6 @@
             android:textColor="@color/tertiary"
             android:textSize="@dimen/sp18"
             tools:text="2023" />
-
         <TextView
             android:id="@+id/movie_actors"
             android:layout_width="@dimen/dp265"
@@ -52,7 +50,6 @@
             android:gravity="center_vertical"
             android:textSize="@dimen/sp14"
             tools:text="Alice Braga, Henry Madera" />
-
     </LinearLayout>
 
 </LinearLayout>

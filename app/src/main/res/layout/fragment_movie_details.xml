@@ -15,8 +15,7 @@
         app:layout_constraintEnd_toStartOf="@id/item_subTitle"
         app:layout_constraintHorizontal_bias="0.20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/item_subTitle"
@@ -32,7 +31,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck,TextContrastCheck"
         tools:text="Queens Gambit" />
     <TextView
         android:id="@+id/item_Linea"
@@ -81,7 +79,6 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/sp25"
-                tools:ignore="TextContrastCheck,TextContrastCheck"
                 tools:text="Gambito de Dama" />
         </LinearLayout>
 
@@ -202,7 +199,6 @@
                     android:gravity="center"
                     android:layout_marginStart="10dp"
                     />
-
                 <TextView
                     android:id="@+id/item_rating"
                     android:layout_width="wrap_content"
@@ -211,7 +207,6 @@
                     android:textColor="@color/tertiary"
                     tools:text="5.0"
                     />
-
             </LinearLayout>
 
             <TextView
@@ -222,7 +217,6 @@
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
                 android:textSize="@dimen/sp16"
-                tools:ignore="TextContrastCheck,TextContrastCheck"
                 tools:text="Dramasdghsdfjghjafj aefkjgkjfasgka akgjlksafgnj afsdgjkasgn askgjnakajnkl agjkhnñajkgh" />
 
         </LinearLayout>
@@ -260,8 +254,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:text="@string/guia_de_episodios"
                 android:textColor="@color/quaternary"
-                android:textSize="@dimen/sp18"
-                tools:ignore="TextContrastCheck,TextContrastCheck" />
+                android:textSize="@dimen/sp18"/>
 
             <TextView
                 android:id="@+id/chapters_number"
@@ -269,7 +262,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/tertiary"
                 android:textSize="@dimen/sp12"
-                tools:ignore="SmallSp"
                 tools:text="7" />
 
             <TextView
@@ -278,14 +270,12 @@
                 android:layout_marginStart="@dimen/dp5"
                 android:text="@string/episodios"
                 android:textColor="@color/tertiary"
-                android:textSize="@dimen/sp12"
-                tools:ignore="SmallSp" />
+                android:textSize="@dimen/sp12"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="@dimen/dp25"
                 android:layout_height="@dimen/dp25"
-                android:background="@drawable/btn_icon_next"
-                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                android:background="@drawable/btn_icon_next"/>
         </LinearLayout>
 
         <TextView
@@ -295,7 +285,6 @@
             android:background="@color/tertiary_two"
             android:gravity="center"
             android:textSize="@dimen/sp15" />
-
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -313,6 +302,5 @@
         android:fontFamily="@font/roboto_bold"
         android:textSize="@dimen/sp19"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

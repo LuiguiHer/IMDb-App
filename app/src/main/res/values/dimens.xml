@@ -25,6 +25,7 @@
     <dimen name="dp45">45dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="dp52">52dp</dimen>
+    <dimen name="dp70">70dp</dimen>
 
     ------------------- sp --------------------
     <dimen name="sp6">6sp</dimen>
@@ -39,76 +40,24 @@
     <dimen name="sp22">22sp</dimen>
     <dimen name="sp25">25sp</dimen>
 
-    _____________________________ Login Activity -----------------------
-    - common sizes
-    <dimen name="main_activity_height_input_btn">49dp</dimen>
-    <dimen name="main_activity_height_txtv">25dp</dimen>
-    <dimen name="main_activity_txt_size">16sp</dimen>
 
-    - other dimens Main Activity
+    _____________________________ Login Activity -----------------------
     <dimen name="dp444">444dp</dimen>
-    <dimen name="main_activity_margin_top">10dp</dimen>
-    <dimen name="main_activity_margin_top_btn">16dp</dimen>
-    <dimen name="main_txtV_width_options_login">150dp</dimen>
-    <dimen name="main_txtV_height_options_login">35dp</dimen>
-    <dimen name="main_margin_top_options_login">35dp</dimen>
-    <dimen name="main_linearL_width_264dp">264dp</dimen>
-    <dimen name="main_linearL_height_70dp">70dp</dimen>
-    <dimen name="main_padding_25dp">25dp</dimen>
-    <dimen name="main_btn_options_50dp">50dp</dimen>
-    <dimen name="main_btn_margin_15dp">15dp</dimen>
+    <dimen name="dp264">264dp</dimen>
 
     _____________________________ Sign Up Activity -----------------------
-    - common Size
-    <dimen name="signUp_50dp">50dp</dimen>
-    <dimen name="signUp_270dp">270dp</dimen>
-    <dimen name="signUp_75dp">75dp</dimen>
-    <dimen name="signUp_12dp">12dp</dimen>
-
-    - other Size
-    <dimen name="signUp_logo_139dp">139dp</dimen>
-    <dimen name="signUp_logo_70dp">70dp</dimen>
-    <dimen name="signUp_60dp">60dp</dimen>
-    <dimen name="signUp_48dp">48dp</dimen>
-    <dimen name="signUp_250dp">250dp</dimen>
-    <dimen name="signUp_35dp">35dp</dimen>
-    <dimen name="signUp_28dp">28dp</dimen>
-    <dimen name="signUp_25dp">25dp</dimen>
-    <dimen name="signUp_25sp">25sp</dimen>
-    <dimen name="signUp_20dp">20dp</dimen>
-    <dimen name="signUp_12sp">12sp</dimen>
-
-    _____________________________ Home Activity -----------------------
-    <dimen name="AftLogin_70dp">70dp</dimen>
-
-    _____________________________ Fragments -----------------------
-    <dimen name="F_height_659dp">659dp</dimen>
-    <dimen name="F_width_409dp">409dp</dimen>
+    <dimen name="dp139">139dp</dimen>
+    <dimen name="dp250">250dp</dimen>
+    <dimen name="dp28">28dp</dimen>
+    <dimen name="dp270">270dp</dimen>
+    <dimen name="dp75">75dp</dimen>
 
     _____________________________ Home Fragment -----------------------
-    <dimen name="HomeF_txtSZ_20sp">20sp</dimen>
-    <dimen name="HomeF_img_height_210dp">210dp</dimen>
-    <dimen name="HomeF_img_130dp">130dp</dimen>
-    <dimen name="HomeF_img_180dp">180dp</dimen>
-    <dimen name="HomeF_407dp">407dp</dimen>
-    <dimen name="HomeF_307dp">307dp</dimen>
-    <dimen name="HomeF_margin__110dp">-110dp</dimen>
-    <dimen name="HomeF_margin_10dp">10dp</dimen>
-    <dimen name="HomeF_margin_20dp">20dp</dimen>
-    <dimen name="HomeF_8dp">8dp</dimen>
-    <dimen name="HomeF_margin_6dp">6dp</dimen>
-
-    _____________________________ Search Fragments -----------------------
-    <dimen name="SearchF_659dp">659dp</dimen>
-    <dimen name="dp60">60dp</dimen>
-    <dimen name="dp350">350dp</dimen>
-    <dimen name="dp560">560dp</dimen>
-
-    _____________________________ Profile Fragments -----------------------
-    <dimen name="dp240">240dp</dimen>
-    <dimen name="dp190">190dp</dimen>
-
-    <dimen name="sp20">20sp</dimen>
+    <dimen name="dp210">210dp</dimen>
+    <dimen name="dp180">180dp</dimen>
+    <dimen name="dp407">407dp</dimen>
+    <dimen name="dp307">307dp</dimen>
+    <dimen name="dpM110">-110dp</dimen>
 
     _____________________________ Movie Details Fragment -----------------------
     <dimen name="dp48">48dp</dimen>
@@ -118,8 +67,17 @@
     <dimen name="dp234">234dp</dimen>
     <dimen name="dp90">90dp</dimen>
     <dimen name="dp98">98dp</dimen>
-
     <dimen name="sp19">19sp</dimen>
+
+    _____________________________ Profile Fragments -----------------------
+    <dimen name="dp240">240dp</dimen>
+    <dimen name="dp190">190dp</dimen>
+    <dimen name="sp20">20sp</dimen>
+
+    _____________________________ Search Fragments -----------------------
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp350">350dp</dimen>
+    <dimen name="dp560">560dp</dimen>
 
     _____________________________ Item Card  -----------------------
     <dimen name="dp150">150dp</dimen>
@@ -133,7 +91,10 @@
 
     _____________________________ Item Movie Horizontal -----------------------
     <dimen name="dpM18">-18dp</dimen>
-    <dimen name="dpCard120">120dp</dimen>
+    <dimen name="dp120">120dp</dimen>
     <dimen name="dp170">170dp</dimen>
 
+    _____________________________ Fragments -----------------------
+    <dimen name="dp659">659dp</dimen>
+    <dimen name="dp409">409dp</dimen>
 </resources>

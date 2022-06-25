@@ -16,12 +16,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/img_logo"
-        android:layout_width="@dimen/signUp_logo_139dp"
-        android:layout_height="@dimen/signUp_logo_70dp"
+        android:layout_width="@dimen/dp139"
+        android:layout_height="@dimen/dp70"
         android:src="@drawable/ic_sign_logo"
         android:contentDescription="@string/signUp"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,16 +30,16 @@
         />
     <TextView
         android:id="@+id/txt_signUp"
-        android:layout_width="@dimen/signUp_250dp"
-        android:layout_height="@dimen/signUp_35dp"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="@dimen/dp35"
         app:layout_constraintTop_toBottomOf="@id/img_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
         android:text="@string/create"
-        android:layout_marginTop="@dimen/signUp_28dp"
+        android:layout_marginTop="@dimen/dp28"
         android:textColor="@color/quaternary"
-        android:textSize="@dimen/signUp_25sp"
+        android:textSize="@dimen/sp25"
         android:fontFamily="@font/roboto"
         android:textStyle="bold"
         />
@@ -48,13 +47,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="@dimen/signUp_270dp"
-        android:layout_height="@dimen/signUp_75dp"
+        android:layout_width="@dimen/dp270"
+        android:layout_height="@dimen/dp75"
         android:hint="@string/name"
-        app:boxCornerRadiusBottomStart="@dimen/signUp_12dp"
-        app:boxCornerRadiusBottomEnd="@dimen/signUp_12dp"
-        app:boxCornerRadiusTopEnd="@dimen/signUp_12dp"
-        app:boxCornerRadiusTopStart="@dimen/signUp_12dp"
+        app:boxCornerRadiusBottomStart="@dimen/dp12"
+        app:boxCornerRadiusBottomEnd="@dimen/dp12"
+        app:boxCornerRadiusTopEnd="@dimen/dp12"
+        app:boxCornerRadiusTopStart="@dimen/dp12"
         android:textColorHint="@color/tertiary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,22 +63,21 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_name"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/signUp_50dp"
-            android:fontFamily="@font/roboto_light_italic"
-            tools:ignore="TextContrastCheck" />
+            android:layout_height="@dimen/dp50"
+            android:fontFamily="@font/roboto_light_italic"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="@dimen/signUp_270dp"
-        android:layout_height="@dimen/signUp_75dp"
+        android:layout_width="@dimen/dp270"
+        android:layout_height="@dimen/dp75"
         android:hint="@string/email"
-        app:boxCornerRadiusBottomStart="@dimen/signUp_12dp"
-        app:boxCornerRadiusBottomEnd="@dimen/signUp_12dp"
-        app:boxCornerRadiusTopEnd="@dimen/signUp_12dp"
-        app:boxCornerRadiusTopStart="@dimen/signUp_12dp"
+        app:boxCornerRadiusBottomStart="@dimen/dp12"
+        app:boxCornerRadiusBottomEnd="@dimen/dp12"
+        app:boxCornerRadiusTopEnd="@dimen/dp12"
+        app:boxCornerRadiusTopStart="@dimen/dp12"
         android:textColorHint="@color/tertiary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,21 +87,20 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_email"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/signUp_50dp"
-            android:fontFamily="@font/roboto_light_italic"
-            tools:ignore="TextContrastCheck,TextContrastCheck" />
+            android:layout_height="@dimen/dp50"
+            android:fontFamily="@font/roboto_light_italic" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="@dimen/signUp_270dp"
-        android:layout_height="@dimen/signUp_60dp"
+        android:layout_width="@dimen/dp270"
+        android:layout_height="@dimen/dp60"
         android:hint="@string/password"
-        app:boxCornerRadiusBottomStart="@dimen/signUp_12dp"
-        app:boxCornerRadiusBottomEnd="@dimen/signUp_12dp"
-        app:boxCornerRadiusTopEnd="@dimen/signUp_12dp"
-        app:boxCornerRadiusTopStart="@dimen/signUp_12dp"
+        app:boxCornerRadiusBottomStart="@dimen/dp12"
+        app:boxCornerRadiusBottomEnd="@dimen/dp12"
+        app:boxCornerRadiusTopEnd="@dimen/dp12"
+        app:boxCornerRadiusTopStart="@dimen/dp12"
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/icon_hide"
         android:textColorHint="@color/tertiary"
@@ -115,31 +112,29 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_password"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/signUp_50dp"
+            android:layout_height="@dimen/dp50"
             android:fontFamily="@font/roboto_light_italic"
-            android:inputType="textPassword"
-            tools:ignore="TextContrastCheck,TextContrastCheck" />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/txt_characters"
-        android:layout_width="@dimen/signUp_250dp"
-        android:layout_height="@dimen/main_padding_25dp"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="@dimen/dp25"
         android:fontFamily="@font/roboto_light_italic"
         android:text="@string/caracters"
         android:textColor="@color/tertiary"
-        android:textSize="@dimen/signUp_12sp"
+        android:textSize="@dimen/sp12"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_password"
-        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@id/til_password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_accept"
-        android:layout_width="@dimen/signUp_270dp"
-        android:layout_height="@dimen/signUp_48dp"
+        android:layout_width="@dimen/dp270"
+        android:layout_height="@dimen/dp48"
         app:layout_constraintTop_toBottomOf="@id/txt_characters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +143,7 @@
         android:enabled="false"
         android:textColor="@color/white"
         android:fontFamily="@font/roboto_bold"
-        android:layout_marginTop="@dimen/signUp_20dp"
+        android:layout_marginTop="@dimen/dp20"
         app:layout_constraintHorizontal_bias="0.42"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

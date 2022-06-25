@@ -12,8 +12,6 @@
     android:layout_marginTop="@dimen/dp25"
     tools:context=".ProfileFragment">
 
-
-
     <LinearLayout
         android:id="@+id/container_name_and_setting"
         android:layout_width="match_parent"
@@ -23,30 +21,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="@dimen/dp40"
-        android:gravity="center_vertical"
-        >
+        android:gravity="center_vertical">
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="@dimen/dp40"
             android:layout_height="@dimen/dp40"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/profile_image"
-            app:shapeAppearance="@style/radiusImageProfile"
-            />
+            app:shapeAppearance="@style/radiusImageProfile"/>
         <TextView
             android:id="@+id/item_nameUser"
             android:layout_width="@dimen/dp240"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             tools:text="Juan Perez"
-            android:textSize="@dimen/sp20"
-            />
+            android:textSize="@dimen/sp20"/>
         <ImageView
             android:id="@+id/item_image_setting"
             android:layout_width="@dimen/dp30"
             android:layout_height="@dimen/dp30"
-            android:src="@drawable/ic_settings"
-            tools:ignore="ContentDescription"/>
+            android:src="@drawable/ic_settings"/>
     </LinearLayout>
 
     <LinearLayout
@@ -63,8 +57,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp4"
-            android:background="@color/tertiary_two"
-            />
+            android:background="@color/tertiary_two"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/reciclerView_cards"
             android:layout_width="wrap_content"
@@ -72,14 +65,11 @@
             android:layout_marginTop="@dimen/dp5"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_cards_horizontal"
-
-            />
+            tools:listitem="@layout/item_cards_horizontal"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp14"
-            android:background="@color/tertiary_two"
-            />
+            android:background="@color/tertiary_two"/>
     </LinearLayout>
 
     <LinearLayout
@@ -119,8 +109,8 @@
             android:layout_marginTop="@dimen/dp10"
             android:layout_marginHorizontal="@dimen/dp45"
             android:paddingEnd="@dimen/dp15"
-            android:text="@string/crear_una_lista_de_seguimiento_para_no_perderte_ninguna_pelicula_o_serie_de_tv"
-            />
+            android:text="@string/crear_una_lista_de_seguimiento_para_no_perderte_ninguna_pelicula_o_serie_de_tv"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp48"
@@ -134,14 +124,12 @@
             android:textAllCaps="false"
             android:textColor="@color/quaternary"
             android:fontFamily="@font/roboto_bold"
-            android:textSize="@dimen/sp20"
-            />
+            android:textSize="@dimen/sp20"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp14"
             android:layout_marginTop="@dimen/dp12"
-            android:background="@color/tertiary_two"
-            />
+            android:background="@color/tertiary_two"/>
     </LinearLayout>
 
     <LinearLayout
@@ -181,14 +169,12 @@
             android:layout_marginHorizontal="@dimen/dp45"
             android:layout_marginTop="@dimen/dp10"
             android:paddingEnd="@dimen/dp15"
-            android:text="@string/no_has_visitado_ninguna_pagina_reciente"
-            />
+            android:text="@string/no_has_visitado_ninguna_pagina_reciente"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp14"
             android:layout_marginTop="@dimen/dp15"
-            android:background="@color/tertiary_two"
-            />
+            android:background="@color/tertiary_two"/>
     </LinearLayout>
 
     <LinearLayout
@@ -228,14 +214,12 @@
             android:layout_marginHorizontal="@dimen/dp45"
             android:layout_marginTop="@dimen/dp10"
             android:paddingEnd="@dimen/dp15"
-            android:text="@string/aun_no_has_marcado_a_ninguna_persona_como_favorita"
-            />
+            android:text="@string/aun_no_has_marcado_a_ninguna_persona_como_favorita"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp14"
             android:layout_marginTop="@dimen/dp15"
-            android:background="@color/tertiary_two"
-            />
+            android:background="@color/tertiary_two"/>
     </LinearLayout>
 
     <LinearLayout
@@ -265,8 +249,7 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
-                android:textSize="@dimen/sp20"
-                 />
+                android:textSize="@dimen/sp20"/>
         </LinearLayout>
 
         <TextView
@@ -279,8 +262,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp14"
             android:layout_marginTop="@dimen/dp15"
-            android:background="@color/tertiary_two"
-            />
+            android:background="@color/tertiary_two"/>
     </LinearLayout>
 
 

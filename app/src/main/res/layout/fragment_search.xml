@@ -16,9 +16,7 @@
         android:layout_marginHorizontal="@dimen/dp60"
         android:queryHint="@string/search"
         android:layout_marginTop="@dimen/dp40"
-        android:background="@drawable/button_search"
-        />
-
+        android:background="@drawable/button_search"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movie_list"

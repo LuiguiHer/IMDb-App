@@ -8,7 +8,6 @@
     android:layout_marginTop="@dimen/dp5"
     app:cardElevation="@dimen/dp8">
 
-
     <LinearLayout
         android:id="@+id/container_card"
         android:layout_width="match_parent"
@@ -27,7 +26,6 @@
             android:textColor="@color/quaternary"
             android:textSize="@dimen/sp12"
             tools:text="calificar y obtener recomendaciones" />
-
         <TextView
             android:id="@+id/card_title"
             android:layout_width="match_parent"
@@ -37,14 +35,11 @@
             android:textColor="@color/quaternary"
             android:textSize="@dimen/sp12"
             tools:text="Calificacione" />
-
         <TextView
             android:id="@+id/card_amount"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp20"
             tools:text="0" />
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

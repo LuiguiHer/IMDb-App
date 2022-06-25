@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/movie_video"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/HomeF_img_height_210dp"
+        android:layout_height="@dimen/dp210"
         android:contentDescription="@string/home"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,19 +30,17 @@
         app:layout_constraintBottom_toBottomOf="@id/movie_video"
         />
 
-
     <ImageView
         android:id="@+id/movie_img"
-        android:layout_width="@dimen/HomeF_img_130dp"
-        android:layout_height="@dimen/HomeF_img_180dp"
+        android:layout_width="@dimen/dp130"
+        android:layout_height="@dimen/dp180"
         android:contentDescription="@string/home"
         app:layout_constraintTop_toBottomOf="@id/movie_video"
-        android:layout_marginTop="@dimen/HomeF_margin__110dp"
+        android:layout_marginTop="@dimen/dpM110"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintEnd_toEndOf="parent"
         tools:src="@drawable/encanto"
-
         />
     <TextView
         android:id="@+id/movie_title"
@@ -52,8 +50,8 @@
         app:layout_constraintStart_toEndOf="@id/movie_img"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Stranger Things"
-        android:textSize="@dimen/HomeF_txtSZ_20sp"
-        android:layout_marginTop="@dimen/HomeF_8dp"
+        android:textSize="@dimen/sp20"
+        android:layout_marginTop="@dimen/dp8"
         app:layout_constraintHorizontal_bias="0.2"
         android:fontFamily="@font/roboto_bold"
         android:textColor="@color/quaternary"
@@ -68,14 +66,14 @@
         app:layout_constraintHorizontal_bias="0.15"
         android:text="@string/trailer_oficial"
         android:fontFamily="@font/roboto"
-        android:layout_marginTop="@dimen/HomeF_margin_6dp"
+        android:layout_marginTop="@dimen/dp6"
         android:textSize="@dimen/sp14"
         />
     <View
         android:id="@+id/item_Linea"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp12"
-        android:layout_marginTop="@dimen/HomeF_margin_20dp"
+        android:layout_marginTop="@dimen/dp20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,29 +92,28 @@
         >
         <View
             android:id="@+id/figure_yellow_one"
-            android:layout_width="@dimen/HomeF_8dp"
+            android:layout_width="@dimen/dp8"
             android:layout_height="@dimen/dp30"
             android:layout_marginTop="@dimen/dp14"
             android:background="@drawable/mini_vertical_linea"
             android:textSize="@dimen/sp25"
-            android:layout_marginStart="@dimen/HomeF_margin_10dp"/>
+            android:layout_marginStart="@dimen/dp10"/>
         <TextView
             android:id="@+id/item_better_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/HomeF_margin_10dp"
-            android:layout_marginStart="@dimen/HomeF_margin_10dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp10"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/secondary"
-            android:textSize="@dimen/HomeF_txtSZ_20sp"
+            android:textSize="@dimen/sp20"
             android:text="@string/las_mejores_selecciones" />
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reciclerView_home"
-        android:layout_width="@dimen/HomeF_407dp"
-        android:layout_height="@dimen/HomeF_307dp"
+        android:layout_width="@dimen/dp407"
+        android:layout_height="@dimen/dp307"
         android:layout_marginStart="@dimen/dp30"
         android:layout_marginTop="@dimen/dp15"
         android:orientation="horizontal"
@@ -125,8 +122,6 @@
         app:layout_constraintTop_toBottomOf="@id/constainer_better_select"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
