@@ -1,9 +1,10 @@
-package com.example.imdb
+package com.example.imdb.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.imdb.R
 import com.example.imdb.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

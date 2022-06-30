@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.imdb.databinding.ItemCardsHorizontalBinding
+import com.example.imdb.model.CardsProfile
 
 class CardsAdapter (
     private val cardsList: List<CardsProfile>,

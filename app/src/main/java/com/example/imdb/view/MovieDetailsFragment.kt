@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.imdb.databinding.FragmentMovieDetailsBinding
+import com.example.imdb.model.Movie
 import com.squareup.picasso.Picasso
 
 

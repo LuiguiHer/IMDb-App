@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.model
 
 class MovieHelper{
     fun movieList(): List<Movie> {

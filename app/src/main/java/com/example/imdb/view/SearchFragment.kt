@@ -1,21 +1,21 @@
-package com.example.imdb
+package com.example.imdb.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.imdb.MovieDetailsFragment.Companion.ARG_MOVIE
+import com.example.imdb.R
 import com.example.imdb.databinding.FragmentSearchBinding
-import com.squareup.picasso.Picasso
+import com.example.imdb.viewModel.SearchFragmentViewModel
 
 
 class SearchFragment : Fragment() {
-    private  var listMovies = MovieHelper().movieList()
-    private var movieAdapter: MovieAdapter? = null
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
+    private val viewModel : SearchFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,17 +32,16 @@ class SearchFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        showMovies(listMovies)
+
+        viewModel.showMovies()
+
+        viewModel.liveShowMovies.observe(this){ bundle ->
+            findNavController().navigate(R.id.item_to_details_movies_series, bundle)
+        }
+
+        viewModel.liveAdapter.observe(this){ adapter ->
+            binding.movieList.adapter = adapter
+        }
     }
 
-    private fun showMovies(movieList: List<Movie>) {
-        val picasso = Picasso.get()
-        movieAdapter = MovieAdapter(picasso, movieList) { movie ->
-            val args = Bundle().apply {
-                putParcelable(ARG_MOVIE, movie)
-            }
-            findNavController().navigate(R.id.item_to_details_movies_series, args)
-        }
-        binding.movieList.adapter = movieAdapter
-    }
 }

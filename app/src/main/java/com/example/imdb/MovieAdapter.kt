@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.imdb.databinding.ItemMovieBinding
+import com.example.imdb.model.Movie
 import com.squareup.picasso.Picasso
 
 class MovieAdapter(

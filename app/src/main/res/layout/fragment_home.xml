@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/dp15"
-    tools:context=".HomeFragment">
+    tools:context=".view.HomeFragment">
 
     <ImageView
         android:id="@+id/movie_video"

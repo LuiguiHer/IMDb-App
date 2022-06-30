@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.imdb.databinding.FragmentProfileBinding
+import com.example.imdb.model.CardsProfile
+import com.example.imdb.view.HomeActivity
+import com.example.imdb.view.MovieDetailsFragment
 
 class ProfileFragment : Fragment() {
     private var cardsAdapter: CardsAdapter? = null

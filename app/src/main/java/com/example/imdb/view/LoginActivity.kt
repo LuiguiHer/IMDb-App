@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -7,14 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.room.Room
+import androidx.lifecycle.ViewModelProvider
+import com.example.imdb.R
 import com.example.imdb.database.User
-import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivityLoginBinding
+import com.example.imdb.viewModel.LoginActivityViewModel
 
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
+    lateinit var viewModel: LoginActivityViewModel
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +24,17 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this)[LoginActivityViewModel::class.java]
+        binding.model = viewModel
+        binding.lifecycleOwner = this
+
+
         binding.txtSignUp.setOnClickListener {
             val start = Intent(this, SignUpActivity::class.java)
             startActivity(start)
         }
 
-        binding.Layout.setOnClickListener { clearKeyboard() }
+        binding.Layout.setOnClickListener { hideKeyboard() }
 
         binding.inputPass.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -45,17 +52,17 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
         binding.btnLogin.setOnClickListener {
-            binding.textErrorp.text = null
-            if (binding.inputUser.text.isEmpty()) {
-                binding.txtError.text = "Usuario requerido"
-            } else if (binding.inputPass.text.isEmpty()) {
-                binding.textErrorp.text = "Contraseña requerida"
-            } else
-                println(existUser())
-            access(existUser())
-
+            viewModel.existUser()
+            viewModel.liveUserValidated.observe(this){ user ->
+                if (user != null){
+                    Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
+                    binding.txtError.text = null
+                    access(user)
+                }else{
+                    noAccess()
+                }
+            }
         }
 
     }
@@ -65,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
         binding.inputPass.setText("")
     }
 
-    private fun clearKeyboard() {
+    private fun hideKeyboard() {
         val view = this.currentFocus
         if (view != null) {
             val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -73,30 +80,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun access(user: User?) {
-        if (user != null) {
-            Toast.makeText(applicationContext, "Ingreso exitoso", Toast.LENGTH_SHORT).show()
-            val start = Intent(this, HomeActivity::class.java)
-            start.putExtra("name_user", user.name)
-            startActivity(start)
-            clearInputs()
-        } else {
-            clearInputs()
-            clearKeyboard()
-            binding.Layout.clearFocus()
-            "Usuario o Contraseña invalido".also { binding.txtError.text = it }
-        }
+    private fun access(user: User){
+        val start = Intent(this, HomeActivity::class.java)
+        start.putExtra("name_user", user.name)
+        startActivity(start)
     }
-
-    private fun existUser(): User {
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_user"
-        ).allowMainThreadQueries().build()
-        val userDao = db.userDao()
-        val user = binding.inputUser.text.toString()
-        val pass = binding.inputPass.text.toString()
-        return userDao.getUserByEmailPass(user, pass)
+    private fun noAccess(){
+        clearInputs()
+        binding.Layout.clearFocus()
+        "Usuario o Contraseña invalido".also { binding.txtError.text = it }
     }
 
     private fun changeBtn() {
