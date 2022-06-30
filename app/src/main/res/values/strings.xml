@@ -18,5 +18,19 @@
     <string name="search">Buscar</string>
     <string name="play">Play</string>
     <string name="profile">Perfil</string>
+    <string name="title_original">(Titulo Original)</string>
+    <string name="las_mejores_selecciones">Las mejores selecciones</string>
+    <string name="trailer_oficial">Trailer Oficial</string>
+    <string name="movie_details">movie details</string>
+    <string name="guia_de_episodios">Guia de episodios</string>
+    <string name="episodios">episodios</string>
+    <string name="agregar_a_mi_lista_de_seguimiento">Agregar a mi lista de seguimiento</string>
+    <string name="lista_de_seguimiento">Lista de seguimiento</string>
+    <string name="crear_una_lista_de_seguimiento_para_no_perderte_ninguna_pelicula_o_serie_de_tv">Crear una lista de seguimiento para no perderte ninguna pelicula o serie de Tv</string>
+    <string name="empieza_tu_lista_de_seguimiento">Empieza tu lista de seguimiento</string>
+    <string name="vistas_recientes">Vistas recientes</string>
+    <string name="no_has_visitado_ninguna_pagina_reciente">No has Visitado ninguna pagina reciente.</string>
+    <string name="personas_favoritas">Personas Favoritas</string>
+    <string name="aun_no_has_marcado_a_ninguna_persona_como_favorita">Aun no has marcado a ninguna persona como favorita</string>
 
 </resources>

@@ -2,36 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="409dp"
-    android:layout_height="659dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-    <SearchView
+     <androidx.appcompat.widget.SearchView
         android:id="@+id/btn_search"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
+        android:layout_height="@dimen/dp50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginHorizontal="60dp"
+        android:layout_marginHorizontal="@dimen/dp60"
         android:queryHint="@string/search"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/button_search"
-        />
+        android:layout_marginTop="@dimen/dp40"
+        android:background="@drawable/button_search"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movie_list"
-        android:layout_width="350dp"
-        android:layout_height="562dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="96dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_search"
-        android:layout_marginTop="10dp"
+        android:layout_width="@dimen/dp350"
+        android:layout_height="@dimen/dp560"
+        android:layout_marginTop="@dimen/dp10"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_search"
+        tools:listitem="@layout/item_movie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

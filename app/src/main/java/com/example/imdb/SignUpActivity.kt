@@ -13,6 +13,7 @@ import com.example.imdb.database.UserDatabase
 import com.example.imdb.databinding.ActivitySignUpBinding
 import kotlinx.coroutines.launch
 
+
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
 
@@ -25,23 +26,25 @@ class SignUpActivity : AppCompatActivity() {
 
         //Send data to db
         binding.btnAccept.setOnClickListener {
-            if (binding.inputPassword.text.toString().length < 8){
+            if (binding.inputPassword.text.toString().length < 8) {
                 binding.tilPassword.error = "error password"
-            }else{
-                if (emailFound() == null){
+            } else {
+                if (emailFound()) {
                     binding.tilPassword.error = null
                     if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
-                        binding.inputPassword.text!!.isNotEmpty()){
+                        binding.inputPassword.text!!.isNotEmpty()
+                    ) {
                         addUserToDatabase()
                         clearInputs()
-                    }else {
+                        finish()
+                    } else {
                         Toast.makeText(
                             applicationContext,
                             "Todos los campos son requeridos",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                }else{
+                } else {
                     Toast.makeText(applicationContext, "Correo en Uso", Toast.LENGTH_SHORT).show()
                 }
 
@@ -66,7 +69,7 @@ class SignUpActivity : AppCompatActivity() {
         }
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                binding.tilEmail.error =null
+                binding.tilEmail.error = null
                 existUser(emailFound())
                 password()
 
@@ -75,27 +78,30 @@ class SignUpActivity : AppCompatActivity() {
 
         //btn back
         binding.btnBack.setOnClickListener {
-            val start = Intent(this, MainActivity::class.java)
+            val start = Intent(this, LoginActivity::class.java)
             startActivity(start)
             finish()
         }
     }
 
-
-
-
-    fun existUser(user:User?){
-        if (user != null){
+    private fun existUser(user: Boolean) {
+        if (!user) {
             binding.tilEmail.error = "correo en uso"
         }
     }
-    fun emailFound(): User {
+
+    private fun emailFound(): Boolean {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
-            "data_uses"
+            "data_user"
         ).allowMainThreadQueries().build()
+        var boolean = true
         val userDao = db.userDao()
-        return userDao.getUserByEmail(binding.inputEmail.text.toString())
+        val user: User?  = userDao.getUserByEmail(binding.inputEmail.text.toString())
+        if (user != null){
+            boolean=false
+        }
+        return boolean
     }
 
     private fun clearKeyboard() {
@@ -106,16 +112,16 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun clearInputs() {
+    private fun clearInputs() {
         binding.inputName.setText("")
         binding.inputEmail.setText("")
         binding.inputPassword.setText("")
     }
 
-    fun addUserToDatabase() {
+    private fun addUserToDatabase() {
         val db = Room.databaseBuilder(
             applicationContext, UserDatabase::class.java,
-            "data_uses"
+            "data_user"
         ).allowMainThreadQueries().build()
         val userDao = db.userDao()
         val name = binding.inputName.text.toString()
@@ -123,7 +129,7 @@ class SignUpActivity : AppCompatActivity() {
         val password = binding.inputPassword.text.toString()
 
         lifecycleScope.launch {
-            val user = User(name, email, password)
+            val user = User(email, name, password)
             userDao.addUser(user)
             Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
 
@@ -134,7 +140,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun name() {
+    private fun name() {
         if (
             binding.inputPassword.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()
@@ -145,7 +151,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
 
-    fun email() {
+    private fun email() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputPassword.text.toString().isNotEmpty()
@@ -156,7 +162,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.btnAccept.setBackgroundResource(R.drawable.button_principal)
     }
 
-    fun password() {
+    private fun password() {
         if (
             binding.inputName.text.toString().isNotEmpty() &&
             binding.inputEmail.text.toString().isNotEmpty()

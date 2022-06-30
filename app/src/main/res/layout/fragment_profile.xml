@@ -1,20 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".profileFragment">
+    android:layout_height="match_parent">
 
-    <TextView
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp25"
+    tools:context=".ProfileFragment">
+
+    <LinearLayout
+        android:id="@+id/container_name_and_setting"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="@string/profile"
-        android:textSize="45sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="@dimen/dp50"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/dp40"
+        android:gravity="center_vertical">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/profile_image"
+            app:shapeAppearance="@style/radiusImageProfile"/>
+        <TextView
+            android:id="@+id/item_nameUser"
+            android:layout_width="@dimen/dp240"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            tools:text="Juan Perez"
+            android:textSize="@dimen/sp20"/>
+        <ImageView
+            android:id="@+id/item_image_setting"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:src="@drawable/ic_settings"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_scrollView_cards"
+        android:layout_marginTop="@dimen/dp4"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/dp30"
+        app:layout_constraintTop_toBottomOf="@id/container_name_and_setting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp4"
+            android:background="@color/tertiary_two"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reciclerView_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp190"
+            android:layout_marginTop="@dimen/dp5"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_cards_horizontal"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp14"
+            android:background="@color/tertiary_two"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_List_following"
+        android:layout_marginTop="@dimen/dp4"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/container_scrollView_cards"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:gravity="center_vertical">
+            <View
+                android:layout_width="@dimen/dp8"
+                android:layout_height="@dimen/dp30"
+                android:background="@drawable/mini_vertical_linea"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/sp20"
+                android:text="@string/lista_de_seguimiento" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:paddingEnd="@dimen/dp15"
+            android:text="@string/crear_una_lista_de_seguimiento_para_no_perderte_ninguna_pelicula_o_serie_de_tv"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp48"
+            android:layout_marginHorizontal="@dimen/dp45"
+            app:layout_constraintTop_toBottomOf="@id/container_chapters"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@drawable/button_yellow"
+            android:text="@string/empieza_tu_lista_de_seguimiento"
+            android:textAllCaps="false"
+            android:textColor="@color/quaternary"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="@dimen/sp20"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp12"
+            android:background="@color/tertiary_two"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_before_view"
+        android:layout_marginTop="@dimen/dp4"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/container_List_following"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginTop="@dimen/dp12"
+            android:gravity="center_vertical">
+            <View
+                android:layout_width="@dimen/dp8"
+                android:layout_height="@dimen/dp30"
+                android:background="@drawable/mini_vertical_linea"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/sp20"
+                android:text="@string/vistas_recientes" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:layout_marginTop="@dimen/dp10"
+            android:paddingEnd="@dimen/dp15"
+            android:text="@string/no_has_visitado_ninguna_pagina_reciente"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@color/tertiary_two"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_favorite_people"
+        android:layout_marginTop="@dimen/dp4"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/container_before_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:layout_marginTop="@dimen/dp12"
+            android:gravity="center_vertical">
+            <View
+                android:layout_width="@dimen/dp8"
+                android:layout_height="@dimen/dp30"
+                android:background="@drawable/mini_vertical_linea"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/sp20"
+                android:text="@string/personas_favoritas" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:layout_marginTop="@dimen/dp10"
+            android:paddingEnd="@dimen/dp15"
+            android:text="@string/aun_no_has_marcado_a_ninguna_persona_como_favorita"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@color/tertiary_two"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_other"
+        android:layout_marginTop="@dimen/dp4"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/container_favorite_people"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:layout_marginTop="@dimen/dp12"
+            android:gravity="center_vertical">
+            <View
+                android:layout_width="@dimen/dp8"
+                android:layout_height="@dimen/dp30"
+                android:background="@drawable/mini_vertical_linea"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/sp20"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp45"
+            android:layout_marginTop="@dimen/dp10"
+            android:paddingEnd="@dimen/dp15"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp14"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@color/tertiary_two"/>
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

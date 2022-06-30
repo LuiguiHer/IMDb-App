@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp150"
+    android:layout_height="@dimen/dp160"
+    android:layout_marginStart="@dimen/dp15"
+    android:layout_marginTop="@dimen/dp5"
+    app:cardElevation="@dimen/dp8">
+
+    <LinearLayout
+        android:id="@+id/container_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp6"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/card_description"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp100"
+            android:background="@color/tertiary_two"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="@dimen/dp6"
+            android:textColor="@color/quaternary"
+            android:textSize="@dimen/sp12"
+            tools:text="calificar y obtener recomendaciones" />
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp2"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/quaternary"
+            android:textSize="@dimen/sp12"
+            tools:text="Calificacione" />
+        <TextView
+            android:id="@+id/card_amount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp20"
+            tools:text="0" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
