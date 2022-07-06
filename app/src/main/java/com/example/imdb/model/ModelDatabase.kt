@@ -7,6 +7,7 @@ import com.example.imdb.database.UserDatabase
 
 class ModelDatabase {
     companion object{
+        var username = ""
         fun db(applicationContext: Context): UserDao {
             val db = Room.databaseBuilder(
                 applicationContext, UserDatabase::class.java,
@@ -14,5 +15,6 @@ class ModelDatabase {
             ).build()
             return db.userDao()
         }
+
     }
 }

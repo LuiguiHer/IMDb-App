@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginHorizontal="@dimen/dp60"
         android:queryHint="@string/search"
-        android:layout_marginTop="@dimen/dp40"
+        android:layout_marginTop="@dimen/dp10"
         android:background="@drawable/button_search"/>
 
     <androidx.recyclerview.widget.RecyclerView

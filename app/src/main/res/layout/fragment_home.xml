@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/dp15"
     tools:context=".view.HomeFragment">
 
     <ImageView
@@ -114,7 +113,7 @@
         android:id="@+id/reciclerView_home"
         android:layout_width="@dimen/dp407"
         android:layout_height="@dimen/dp307"
-        android:layout_marginStart="@dimen/dp30"
+        android:layout_marginStart="@dimen/dp20"
         android:layout_marginTop="@dimen/dp15"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

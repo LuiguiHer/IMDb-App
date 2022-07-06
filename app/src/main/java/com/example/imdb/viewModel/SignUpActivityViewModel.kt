@@ -54,19 +54,4 @@ class SignUpActivityViewModel (application: Application): AndroidViewModel(appli
     fun validatePassword(){
         liveValidatedPass.value = livePassword.value!!.length >= 8
     }
-
-    /*
-    fun showUsers(){
-        viewModelScope.launch(Dispatchers.IO) {
-            //connect.addUser(User("key1","lu","123456"))
-            for (user in connection.readAllData()){
-                println(user.name+" -> "+user.email+" -> "+user.password)
-            }
-        }
-    }
-
-     */
-
-
-
 }

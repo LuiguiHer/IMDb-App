@@ -20,6 +20,8 @@ class LoginActivityViewModel (application: Application): AndroidViewModel(applic
     val liveErrorPassword = MutableLiveData<String>()
     val liveErrorUser = MutableLiveData<String>()
     val liveUserValidated = MutableLiveData<User>()
+    val liveUserName= MutableLiveData<String>()
+
 
 
     fun existUser(){

@@ -1,17 +1,18 @@
-package com.example.imdb
+package com.example.imdb.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.imdb.databinding.ItemMovieBinding
-import com.example.imdb.model.Movie
+import com.example.imdb.model.Movies
+import com.example.imdb.model.RetrofitConfig.Companion.URL_IMAGE
 import com.squareup.picasso.Picasso
 
 class MovieAdapter(
     private val picasso: Picasso,
-    private val movieList: List<Movie>,
-    private val onClick: (Movie) -> Unit
+    private val movieList: List<Movies>,
+    private val onClick: (Movies) -> Unit
 ): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun getItemCount(): Int = movieList.size
@@ -28,14 +29,13 @@ class MovieAdapter(
 
     inner  class MovieViewHolder(private val binding: ItemMovieBinding): RecyclerView.ViewHolder(binding.root){
         @SuppressLint("SetTextI18n")
-        fun bind(movie: Movie) {
+        fun bind(movie: Movies) {
             itemView.setOnClickListener {
                 onClick(movie)
             }
-            picasso.load(movie.imageUrl).into(binding.movieImg)
-            binding.movieYear.text = movie.year
-            binding.movieActors.text = movie.principal_actors[0] +", "+ movie.principal_actors[1]
-            binding.movieTitle.text = movie.title
+            picasso.load(URL_IMAGE+movie.poster_path).into(binding.movieImg)
+            binding.movieYear.text = movie.release_date
+            binding.movieTitle.text = movie.original_title
         }
     }
 }

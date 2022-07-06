@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -14,10 +14,10 @@ class CardsAdapter (
 
     override fun getItemCount(): Int = cardsList.size
 
-    override fun onBindViewHolder(holder: CardsAdapter.CardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         holder.bind(cardsList[position])
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardsAdapter.CardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val binding = ItemCardsHorizontalBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return CardViewHolder(binding)
     }

@@ -11,7 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.imdb.R
 import com.example.imdb.database.User
 import com.example.imdb.databinding.ActivityLoginBinding
+import com.example.imdb.model.ApiServices
 import com.example.imdb.viewModel.LoginActivityViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class LoginActivity : AppCompatActivity() {
@@ -27,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[LoginActivityViewModel::class.java]
         binding.model = viewModel
         binding.lifecycleOwner = this
-
 
         binding.txtSignUp.setOnClickListener {
             val start = Intent(this, SignUpActivity::class.java)
@@ -65,8 +71,9 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-    }
 
+
+    }
     private fun clearInputs() {
         binding.inputUser.setText("")
         binding.inputPass.setText("")

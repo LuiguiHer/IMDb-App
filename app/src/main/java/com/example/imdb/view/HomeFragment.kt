@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.imdb.R
 import com.example.imdb.databinding.FragmentHomeBinding
@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val picasso = Picasso.get()
     private val binding get() = _binding!!
-    private val viewModel: HomeFragmentViewModel by activityViewModels()
+    private val viewModel: HomeFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,14 +30,18 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.showMovies()
+        viewModel.getMovies()
+
+        viewModel.liveMoviesList.observe(this){
+            viewModel.showMovies()
+        }
         viewModel.liveShowMovies.observe(this){
             findNavController().navigate(R.id.item_to_details_movies_series, it)
         }
         viewModel.liveAdapter.observe(this){ adapter ->
             binding.reciclerViewHome.adapter = adapter
         }
-        firstMovie(MovieHelper().movieList()[7])
+        firstMovie(MovieHelper().movieList()[0])
     }
 
     private fun firstMovie(movie: Movie) {

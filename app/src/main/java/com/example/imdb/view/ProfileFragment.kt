@@ -8,43 +8,35 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.imdb.R
-import com.example.imdb.databinding.FragmentSearchBinding
-import com.example.imdb.viewModel.SearchFragmentViewModel
+import com.example.imdb.databinding.FragmentProfileBinding
+import com.example.imdb.model.ModelDatabase
+import com.example.imdb.viewModel.ProfileFragmentViewModel
 
-
-class SearchFragment : Fragment() {
-    private var _binding: FragmentSearchBinding? = null
+class ProfileFragment : Fragment() {
+    private val viewModel : ProfileFragmentViewModel by viewModels()
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private val viewModel : SearchFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.getMovies()
-
-        viewModel.liveMoviesList.observe(this){
-            viewModel.showMovies()
-        }
+        binding.itemNameUser.text = ModelDatabase.username
+        viewModel.showCard()
 
         viewModel.liveBundle.observe(this){ bundle ->
             findNavController().navigate(R.id.item_to_details_movies_series, bundle)
         }
-
         viewModel.liveAdapter.observe(this){ adapter ->
-            binding.movieList.adapter = adapter
+            binding.reciclerViewCards.adapter = adapter
         }
+
     }
 
 }
