@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.view
 
 import android.app.Activity
 import android.content.Intent
@@ -6,48 +6,66 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
-import com.example.imdb.database.User
-import com.example.imdb.database.UserDatabase
+import androidx.lifecycle.ViewModelProvider
+import com.example.imdb.R
 import com.example.imdb.databinding.ActivitySignUpBinding
-import kotlinx.coroutines.launch
+import com.example.imdb.viewModel.SignUpActivityViewModel
 
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
+    private lateinit var viewModel: SignUpActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel = ViewModelProvider(this)[SignUpActivityViewModel::class.java]
+        binding.model = viewModel
+        binding.lifecycleOwner = this
 
-        binding.Layout.setOnClickListener { clearKeyboard() }
+        binding.Layout.setOnClickListener { hideKeyboard()}
+
+        //OBSERVERS
+        viewModel.liveEmailFound.observe(this){ result ->
+            existUser(result)
+        }
+
+        viewModel.liveUserAdded.observe(this){ result ->
+            if (result){
+                Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        viewModel.liveUserAdded.observe(this){
+            if (it == true){
+                Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        viewModel.liveValidatedPass.observe(this){
+            if (!it){
+                binding.tilPassword.error = "error password"
+            }
+        }
+
+        viewModel.liveNoEmpty.observe(this){
+            if (!it){
+                Toast.makeText(applicationContext,"Todos los campos son requeridos",Toast.LENGTH_SHORT).show()
+            }
+        }
 
         //Send data to db
         binding.btnAccept.setOnClickListener {
-            if (binding.inputPassword.text.toString().length < 8) {
-                binding.tilPassword.error = "error password"
-            } else {
-                if (emailFound()) {
-                    binding.tilPassword.error = null
-                    if (binding.inputName.text!!.isNotEmpty() && binding.inputEmail.text!!.isNotEmpty() &&
-                        binding.inputPassword.text!!.isNotEmpty()
-                    ) {
-                        addUserToDatabase()
-                        clearInputs()
-                        finish()
-                    } else {
-                        Toast.makeText(
-                            applicationContext,
-                            "Todos los campos son requeridos",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } else {
-                    Toast.makeText(applicationContext, "Correo en Uso", Toast.LENGTH_SHORT).show()
-                }
+            viewModel.dontEmpty()
+            viewModel.validatePassword()
+            val validatedEmail = viewModel.liveEmailFound.value!!
+            val validatedInputs = viewModel.liveNoEmpty.value!!
+            val validatedPassword = viewModel.liveValidatedPass.value!!
 
+            if (validatedPassword && validatedEmail && validatedInputs){
+                viewModel.addUserDb()
+                finish()
             }
 
         }
@@ -55,22 +73,31 @@ class SignUpActivity : AppCompatActivity() {
         //validate inputs
         binding.inputName.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
+                if (binding.inputEmail.text!!.isNotEmpty()){
+                    viewModel.emailFound()
+                    viewModel.dontEmpty()
+                }
                 binding.tilEmail.error = null
-                existUser(emailFound())
                 name()
+
             }
         }
+
         binding.inputEmail.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                existUser(emailFound())
                 binding.tilEmail.error = null
                 email()
             }
         }
+
         binding.inputPassword.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
+                binding.tilPassword.error = null
+                if (binding.inputEmail.text!!.isNotEmpty()){
+                    viewModel.emailFound()
+                    viewModel.dontEmpty()
+                }
                 binding.tilEmail.error = null
-                existUser(emailFound())
                 password()
 
             }
@@ -90,53 +117,11 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun emailFound(): Boolean {
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_user"
-        ).allowMainThreadQueries().build()
-        var boolean = true
-        val userDao = db.userDao()
-        val user: User?  = userDao.getUserByEmail(binding.inputEmail.text.toString())
-        if (user != null){
-            boolean=false
-        }
-        return boolean
-    }
-
-    private fun clearKeyboard() {
+    private fun hideKeyboard() {
         val view = this.currentFocus
         if (view != null) {
             val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
-
-    private fun clearInputs() {
-        binding.inputName.setText("")
-        binding.inputEmail.setText("")
-        binding.inputPassword.setText("")
-    }
-
-    private fun addUserToDatabase() {
-        val db = Room.databaseBuilder(
-            applicationContext, UserDatabase::class.java,
-            "data_user"
-        ).allowMainThreadQueries().build()
-        val userDao = db.userDao()
-        val name = binding.inputName.text.toString()
-        val email = binding.inputEmail.text.toString()
-        val password = binding.inputPassword.text.toString()
-
-        lifecycleScope.launch {
-            val user = User(email, name, password)
-            userDao.addUser(user)
-            Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
-
-            val users = userDao.readAllData()
-            for (i in users) {
-                println("${i.name} - ${i.email} - ${i.password}")
-            }
         }
     }
 

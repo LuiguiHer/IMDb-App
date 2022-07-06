@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

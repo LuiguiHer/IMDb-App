@@ -1,4 +1,4 @@
-package com.example.imdb
+package com.example.imdb.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.imdb.databinding.FragmentMovieDetailsBinding
+import com.example.imdb.model.Movies
+import com.example.imdb.model.RetrofitConfig.Companion.URL_IMAGE
 import com.squareup.picasso.Picasso
 
 
 class MovieDetailsFragment : Fragment() {
-    private lateinit var movie: Movie
+    private lateinit var movie: Movies
     private var _binding: FragmentMovieDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -34,6 +36,7 @@ class MovieDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonBack.setOnClickListener {
+
             findNavController().popBackStack()
         }
         initializeView()
@@ -42,21 +45,22 @@ class MovieDetailsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun initializeView() {
         val picasso = Picasso.get()
-        binding.itemSubTitle.text = movie.subTitle
+        binding.itemSubTitle.text = movie.title
         binding.itemTitle.text = movie.title
-        binding.itemTitleOriginal.text = movie.titleOrigin
-        binding.itemYear.text = " - " + movie.year
-        binding.itemType.text = movie.type
-        binding.itemRating.text = movie.rating
-        picasso.load(movie.videoUrl).into(binding.itemVideo)
-        picasso.load(movie.imageUrl).into(binding.itemImage)
-        binding.itemGender.text = movie.genders[0]
-        binding.itemSynopsis.text = movie.synopsis
-        if (movie.chapters == null) {
+        binding.itemTitleOriginal.text = movie.original_title
+        binding.itemYear.text = " - " + movie.release_date
+        //binding.itemType.text = movie.type
+        binding.itemRating.text = movie.vote_average.toString()
+        picasso.load(URL_IMAGE+movie.backdrop_path).into(binding.itemVideo)
+        picasso.load(URL_IMAGE+movie.poster_path).into(binding.itemImage)
+        //binding.itemGender.text = movie.genders[0]
+        binding.itemSynopsis.text = movie.overview
+        binding.containerChapters.visibility = View.GONE
+        /*if (movie.chapters == null) {
             binding.containerChapters.visibility = View.GONE
         } else {
             binding.chaptersNumber.text = movie.chapters.toString()
-        }
+        }*/
     }
 
     companion object {
