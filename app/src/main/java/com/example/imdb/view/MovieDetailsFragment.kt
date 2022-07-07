@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.imdb.R
 import com.example.imdb.databinding.FragmentMovieDetailsBinding
 import com.example.imdb.model.Movies
 import com.example.imdb.model.RetrofitConfig.Companion.URL_IMAGE
@@ -35,9 +36,10 @@ class MovieDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonBack.setOnClickListener {
 
-            findNavController().popBackStack()
+        binding.buttonBack.setOnClickListener {
+            onDestroy()
+            findNavController().navigate(R.id.homeFragment)
         }
         initializeView()
     }

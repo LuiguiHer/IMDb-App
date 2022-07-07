@@ -32,5 +32,7 @@
     <string name="no_has_visitado_ninguna_pagina_reciente">No has Visitado ninguna pagina reciente.</string>
     <string name="personas_favoritas">Personas Favoritas</string>
     <string name="aun_no_has_marcado_a_ninguna_persona_como_favorita">Aun no has marcado a ninguna persona como favorita</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".view.MovieDetailsFragment">
 
     <Button
@@ -210,7 +215,7 @@
             <TextView
                 android:id="@+id/item_synopsis"
                 android:layout_width="@dimen/dp234"
-                android:layout_height="@dimen/dp98"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp12"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/secondary"
@@ -228,16 +233,15 @@
         app:layout_constraintTop_toBottomOf="@id/container_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/dp8"
+        android:layout_marginTop="@dimen/dp10"
         android:orientation="vertical">
 
-        <TextView
+        <View
             android:id="@+id/linea_two"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp2"
             android:background="@color/tertiary_two"
-            android:gravity="center"
-            android:textSize="@dimen/sp15" />
+            android:gravity="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -276,16 +280,16 @@
                 android:background="@drawable/btn_icon_next"/>
         </LinearLayout>
 
-        <TextView
+        <View
             android:id="@+id/linea_three"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp2"
             android:background="@color/tertiary_two"
-            android:gravity="center"
-            android:textSize="@dimen/sp15" />
+            android:gravity="center" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_follow"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp48"
         app:layout_constraintTop_toBottomOf="@id/container_chapters"
@@ -302,3 +306,4 @@
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

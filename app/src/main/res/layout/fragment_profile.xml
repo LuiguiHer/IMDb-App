@@ -32,7 +32,7 @@
             app:shapeAppearance="@style/radiusImageProfile"/>
         <TextView
             android:id="@+id/item_nameUser"
-            android:layout_width="@dimen/dp200"
+            android:layout_width="@dimen/dp250"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp10"
             tools:text="Juan Perez"

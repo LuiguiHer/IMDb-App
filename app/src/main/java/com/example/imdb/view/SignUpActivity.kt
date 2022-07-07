@@ -75,7 +75,6 @@ class SignUpActivity : AppCompatActivity() {
             if (hasFocus) {
                 if (binding.inputEmail.text!!.isNotEmpty()){
                     viewModel.emailFound()
-                    viewModel.dontEmpty()
                 }
                 binding.tilEmail.error = null
                 name()
@@ -95,7 +94,6 @@ class SignUpActivity : AppCompatActivity() {
                 binding.tilPassword.error = null
                 if (binding.inputEmail.text!!.isNotEmpty()){
                     viewModel.emailFound()
-                    viewModel.dontEmpty()
                 }
                 binding.tilEmail.error = null
                 password()
