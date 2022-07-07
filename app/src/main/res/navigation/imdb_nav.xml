@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/playFragment"
-        android:name="com.example.imdb.PlayFragment"
+        android:name="com.example.imdb.view.PlayFragment"
         android:label="fragment_play"
         tools:layout="@layout/fragment_play" >
         <action

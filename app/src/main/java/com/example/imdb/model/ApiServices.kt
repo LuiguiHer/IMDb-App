@@ -9,5 +9,8 @@ interface ApiServices {
     suspend fun getMoviesHorizontal(@Url url:String):Response<ApiRespondBestMovies>
 
     @GET
-    suspend fun getMovieSearch(@Url url: String):Response<ApiRespondMovies>
+    suspend fun getMovies(@Url url: String):Response<ApiRespondMovies>
+
+    @GET
+    suspend fun getMovieSearched(@Url url: String):Response<ApiRespondBestMovies>
 }

@@ -39,6 +39,7 @@ class MovieDetailsFragment : Fragment() {
 
         binding.buttonBack.setOnClickListener {
             onDestroy()
+
             findNavController().navigate(R.id.homeFragment)
         }
         initializeView()
@@ -51,18 +52,11 @@ class MovieDetailsFragment : Fragment() {
         binding.itemTitle.text = movie.title
         binding.itemTitleOriginal.text = movie.original_title
         binding.itemYear.text = " - " + movie.release_date
-        //binding.itemType.text = movie.type
         binding.itemRating.text = movie.vote_average.toString()
         picasso.load(URL_IMAGE+movie.backdrop_path).into(binding.itemVideo)
         picasso.load(URL_IMAGE+movie.poster_path).into(binding.itemImage)
-        //binding.itemGender.text = movie.genders[0]
         binding.itemSynopsis.text = movie.overview
         binding.containerChapters.visibility = View.GONE
-        /*if (movie.chapters == null) {
-            binding.containerChapters.visibility = View.GONE
-        } else {
-            binding.chaptersNumber.text = movie.chapters.toString()
-        }*/
     }
 
     companion object {

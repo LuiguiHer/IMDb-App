@@ -10,6 +10,7 @@ class RetrofitConfig {
         const val ENDPOINT_HOME = "movie/top_rated"
         const val ENDPOINT_SEARCH = "list/1"
         const val API_KEY = "c5c47722a4adcc77f6e84f28a48b857a"
+        const val ENDPOINT_RESULT = "search/movie"
 
 
         private fun retrofitBuild(): Retrofit {

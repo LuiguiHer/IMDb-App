@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.imdb.adapters.MovieAdapter
 import com.example.imdb.model.ApiServices
-import com.example.imdb.model.MovieHelper
 import com.example.imdb.model.Movies
 import com.example.imdb.model.RetrofitConfig
 import com.example.imdb.view.MovieDetailsFragment
@@ -21,10 +20,11 @@ class SearchFragmentViewModel: ViewModel() {
     val liveBundle = MutableLiveData<Bundle>()
     val liveAdapter = MutableLiveData<MovieAdapter>()
     val liveMoviesList =MutableLiveData<List<Movies>>()
+    val liveDataSearch = MutableLiveData<String>()
 
     fun getMovies(){
         CoroutineScope(Dispatchers.IO).launch {
-            val call = RetrofitConfig.getRetrofit.create(ApiServices::class.java).getMovieSearch("${RetrofitConfig.ENDPOINT_SEARCH}?api_key=${RetrofitConfig.API_KEY}")
+            val call = RetrofitConfig.getRetrofit.create(ApiServices::class.java).getMovies("${RetrofitConfig.ENDPOINT_SEARCH}?api_key=${RetrofitConfig.API_KEY}")
             val movies = call.body()
             if (call.isSuccessful){
                 liveMoviesList.postValue(movies?.items)
@@ -33,6 +33,19 @@ class SearchFragmentViewModel: ViewModel() {
             }
         }
     }
+
+    fun getMovieSearch(query:String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = RetrofitConfig.getRetrofit.create(ApiServices::class.java).getMovieSearched("${RetrofitConfig.ENDPOINT_RESULT}?api_key=${RetrofitConfig.API_KEY}&query=${query}")
+            val movies = call.body()
+            if (call.isSuccessful){
+                liveMoviesList.postValue(movies?.results)
+            }else{
+                errorMessage()
+            }
+        }
+    }
+
 
     fun showMovies() {
         val listMovies: List<Movies> = liveMoviesList.value!!
@@ -43,7 +56,7 @@ class SearchFragmentViewModel: ViewModel() {
             liveBundle.value = args
             println(args)
         }
-        liveAdapter.value = movieAdapter
+        liveAdapter.value = movieAdapter!!
     }
 
     private fun errorMessage() {
